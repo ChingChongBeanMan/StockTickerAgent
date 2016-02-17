@@ -1,1 +1,3 @@
-{side}
+<table>
+    {side}
+</table>
