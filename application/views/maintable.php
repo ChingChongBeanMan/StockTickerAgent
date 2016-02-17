@@ -1,6 +1,4 @@
 <tr>
-    <td>{Datetime}</td>
-    <td>{Code}</td>
-    <td>{Action}</td>
-    <td>{Amount}</td>
+    <td>{Name}</td>
+    <td>{Value}</td>
 </tr>
