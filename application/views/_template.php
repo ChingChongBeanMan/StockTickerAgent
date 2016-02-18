@@ -19,6 +19,7 @@
 					<ul class="list-inline">
 						<li><p><a class="btn btn-primary btn-lg" href="#" role="button">Stocks</a></p></li>
 						<li><p><a class="btn btn-primary btn-lg" href="#" role="button">Users</a></p></li> 
+                        <li>{login-menu}</li>
 					</ul>
 				</div>
                 {content}
