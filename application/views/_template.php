@@ -11,8 +11,9 @@
 	  crossorigin="anonymous">
     </head>
     <body>
+
         <div class="container">
-                {menubar}          
+                {menubar}         
 				{content}
             <div id="footer" class="span12">
                 Copyright &copy; 2015-2016,  <a href="mailto:someone@somewhere.com">Me</a>.

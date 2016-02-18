@@ -83,7 +83,7 @@ class Profile extends MY_Controller {
         $this->data['pagetitle'] = $this->session->userdata('username');
         //$this->data['player-activity'] = $this->trade_activity($this->session->userdata('username'));
         $this->data['pagecontent'] = 'profilepage';
-        $this->data['pagebody'] = 'profilepage';
+        $this->data['pagebody'] = 'mainmaster';
         $this->data['page'] = 'profilepage';
         $this->render();
         } 
