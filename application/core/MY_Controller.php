@@ -14,6 +14,8 @@ class MY_Controller extends CI_Controller {
     {
         parent::__construct();
         $this->data = array();
+        $this->data['title'] = 'Stocks';
+        $this->errors = array();
         $this->data['pagetitle'] = 'Stock Game';
     }
 
@@ -22,6 +24,7 @@ class MY_Controller extends CI_Controller {
      */
     function render()
     {
+        $this->data['menubar'] = $this ->parser->parse('_menubar', $this->config->item('menu_choices'),true);
         $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
         $this->data['data'] = &$this->data;
         $this->parser->parse('_template', $this->data);
