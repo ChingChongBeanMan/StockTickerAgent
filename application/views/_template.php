@@ -15,9 +15,9 @@
         <div class="container">
                 {menubar}         
 				{content}
-            <div id="footer" class="span12">
-                Copyright &copy; 2015-2016,  <a href="mailto:someone@somewhere.com">Me</a>.
-            </div>
+		<div id="footer" class="span12">
+            Copyright &copy; 2015-2016,  <a href="mailto:someone@somewhere.com">Me</a>.
+        </div>
         </div>
         <script src="/assets/js/jquery-1.11.1.min.js"></script>
         <script src="/assets/js/bootstrap.min.js"></script>
