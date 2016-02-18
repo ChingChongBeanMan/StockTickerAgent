@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
 $config['menu_choices'] = array(
         'menudata' => array(
                     array('name' => 'Main', 'link' => '/main'),
@@ -10,6 +9,7 @@ $config['menu_choices'] = array(
             )
  
 );
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -32,7 +32,7 @@ $config['menu_choices'] = array(
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+$config['base_url'] = '/';
 
 /*
 |--------------------------------------------------------------------------
