@@ -75,7 +75,7 @@ class Profile extends MY_Controller {
     public function logout(){
         $this->session->unset_userdata('username');
         $this->data['login-menu'] = $this->parser->parse("login_menu", $this->data, true);
-        $this->data['pagebody'] = 'login';
+        $this->data['pagebody'] = 'profilepage';
         $this->render();
 
     }
