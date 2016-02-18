@@ -9,7 +9,7 @@
 <nav class="navbar navbar-inverse" >
 	<div class="container">
 		{menudata}
-		<button type="button" class="btn btn-default navbar-btn">{name}</button>
+		<button type="button" class="btn btn-default navbar-btn"><a href={link}>{name}</a></button>
 		{/menudata}
 	</div> 
 </nav>

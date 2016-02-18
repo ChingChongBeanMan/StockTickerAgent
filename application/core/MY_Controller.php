@@ -17,6 +17,7 @@ class MY_Controller extends CI_Controller {
         $this->data['title'] = 'Stocks';
         $this->errors = array();
         $this->data['pagetitle'] = 'Stock Game';
+		$this->load->helper('html');
     }
 
     /**
