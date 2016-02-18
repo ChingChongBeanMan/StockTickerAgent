@@ -9,7 +9,6 @@
 			</ul>
 		</div>
 	</div>
-{mainview}{sideview}
-
+	{mainview}{sideview}
 </div>
 
