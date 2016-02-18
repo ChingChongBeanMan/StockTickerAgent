@@ -42,7 +42,6 @@ class Welcome extends MY_Controller {
             //$this->parser->parse('mainview', $parms);
                 
             //$this->data['inside_stuff'] = $result;
-            
             $sql = ("SELECT * FROM players");
             $qArr = $this->db->query($sql);
             $result_side = '';
