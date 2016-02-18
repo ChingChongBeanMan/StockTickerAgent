@@ -1,4 +1,4 @@
-?php
+<?php
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 /**
@@ -307,6 +307,16 @@ class MY_Model2 extends MY_Model {
         }
         return $highest;
     }
+    
+    function some($what, $which) {
+        $this->db->order_by($this->_keyField2, 'asc');
+//        if (($what == 'period') && ($which < 9)) {
+ //           $this->db->where($what, $which); // special treatment for period
+ //       } else
+            $this->db->where($what, $which);
+        $query = $this->db->get($this->_tableName);
+        return $query->result();
+    }
 //---------------------------------------------------------------------------
 //  Aggregate functions
 //---------------------------------------------------------------------------
@@ -319,5 +329,5 @@ class MY_Model2 extends MY_Model {
     }
 }
 /* End of file */
-Status API Training Shop Blog About Pricing
+
 
