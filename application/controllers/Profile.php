@@ -18,21 +18,19 @@ class Profile extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-        function __construct()
+        public function __construct()
 	{
 		parent::__construct();
 		//$this->data = array();
 		$this->data['pagetitle'] = 'Profile';
 		//$this->load->library('parser');
 	}
-        function get_holdings($name){
+        public function get_holdings($name){
           
             $sql = ("SELECT Stock, Trans, Quantity FROM transactions WHERE Player = ?");
             $qArr = $this->db->query($sql, array($name));
             $totals = array_map();
             foreach($qArr->result() as $row){
-                
-                
             }
         }
         public function history($name){
@@ -51,42 +49,42 @@ class Profile extends MY_Controller {
             $this->data['pagebody'] = 'profilepage';
             $this->render();
         }
-	function index()
+	public function index()
 	{
-            
-            return;
-            $this->load->database();
-            $this->load->library('table');
-            $this->load->library('parser');
-            $sql = ("SELECT Name, Value FROM stocks");
-            $qArr = $this->db->query($sql);
-            $result = '';
-            foreach($qArr->result() as $row){
-                $result .= $this->parser->parse('maintable', $row, true);             
+            if ($this->session->userdata('username')) {
+                    $this->profile();
             }
-            $main_data['inside_stuff'] = $result;
-            $this->data['mainview'] = $this->parser->parse('mainview', $main_data, true);
-            //$parms['inside_stuff'] = $result;
-            //$this->parser->parse('mainview', $parms);
-                
-            //$this->data['inside_stuff'] = $result;
-            
-//            
-//            
-            $sql = ("SELECT  FROM players");
-            $qArr = $this->db->query($sql);
-            $result_side = '';
-            foreach($qArr->result() as $row){
-                $result_side .= $this->parser->parse('sidetable', $row, true);             
-            }
-            
-            $main_data['inside_stuff'] = $result;
-            $this->data['mainview'] = $this->parser->parse('mainview', $main_data, true);
-            
-            $side_data['side'] = $result_side;
-            $this->data['sideview'] = $this->parser->parse('sideview', $side_data, true);
-            
-            $this->data['pagebody'] = 'mainmaster';
-            $this->render();
+            else {
+                    $this->login(); 
+        }
 	}
+    public function login() {
+        if($this->input->post('field-username')) {
+                $nData = array('username' => $this->input->post('field-username'));
+                $this->session->set_userdata($nData);
+                $this->data['login-menu'] = $this->parser->parse("logout_menu", $this->data, true);
+                $this->index();
+            } else {
+                $this->data['pagetitle'] = "Login";
+                $this->data['page'] = 'login';
+                $this->data['pagecontent'] = 'login';
+                $this->data['pagebody'] = 'login';
+                $this->render();
+              }
+        }
+    public function logout(){
+        $this->session->unset_userdata('username');
+        $this->data['login-menu'] = $this->parser->parse("login_menu", $this->data, true);
+        $this->data['pagebody'] = 'login';
+        $this->render();
+
+    }
+    public function profile() { 
+        $this->data['pagetitle'] = $this->session->userdata('username');
+        //$this->data['player-activity'] = $this->trade_activity($this->session->userdata('username'));
+        $this->data['pagecontent'] = 'profilepage';
+        $this->data['pagebody'] = 'profilepage';
+        $this->data['page'] = 'profilepage';
+        $this->render();
+        } 
 }

@@ -43,9 +43,7 @@ class Welcome extends MY_Controller {
                 
             //$this->data['inside_stuff'] = $result;
             
-//            
-//            
-             $sql = ("SELECT * FROM players");
+            $sql = ("SELECT * FROM players");
             $qArr = $this->db->query($sql);
             $result_side = '';
             foreach($qArr->result() as $row){
