@@ -1,8 +1,10 @@
-<table><tr>
-    <td>    
+<table>
+        
     {mainview}
-    </td>
-    <td>
+    
+</table>
+<table>
+    
         {sideview}
-    </td></tr>
+    
 </table>
