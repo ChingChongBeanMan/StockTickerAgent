@@ -6,8 +6,10 @@
  * and open the template in the editor.
  */
 ?>
-<ul class ="nav">
-    {menudata}
-    <li><a href="{link}">{name}</a></li>
-    {/menudata}
-</ul>
+<nav class="navbar navbar-inverse" >
+	<div class="container">
+		{menudata}
+		<button type="button" class="btn btn-default navbar-btn">{name}</button>
+		{/menudata}
+	</div> 
+</nav>

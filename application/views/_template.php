@@ -6,17 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="/assets/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
         <link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
-        
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+	  integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
+	  crossorigin="anonymous">
     </head>
     <body>
         <div class="container">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <a class="brand" href="/"><img src="/assets/images/logo.png"/></a>
-                    {menubar} </div>
-            </div>           
+                {menubar}          
             <div id="content">
-                <h1>{title}</h1>
+				<div class="jumbotron">
+					<h1>JIM WHY U DO DIS</h1>
+					<ul class="list-inline">
+						<li><p><a class="btn btn-primary btn-lg" href="#" role="button">Stocks</a></p></li>
+						<li><p><a class="btn btn-primary btn-lg" href="#" role="button">Users</a></p></li> 
+					</ul>
+				</div>
                 {content}
             </div>
             <div id="footer" class="span12">

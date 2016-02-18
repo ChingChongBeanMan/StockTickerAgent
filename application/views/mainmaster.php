@@ -1,10 +1,4 @@
-<table>
-        
-    {mainview}
-    
-</table>
-<table>
-    
-        {sideview}
-    
-</table>
+
+{mainview}
+{sideview}
+

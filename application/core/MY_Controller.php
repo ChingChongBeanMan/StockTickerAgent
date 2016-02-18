@@ -14,7 +14,7 @@ class MY_Controller extends CI_Controller {
     {
         parent::__construct();
         $this->data = array();
-        $this->data['title'] = 'TEST';
+        $this->data['title'] = 'Stocks';
         $this->errors = array();
         $this->data['pagetitle'] = 'Stock Game';
     }
