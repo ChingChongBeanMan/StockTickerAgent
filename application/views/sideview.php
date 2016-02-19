@@ -1,4 +1,4 @@
-<div class="col-xs-6">
+<div class ="col-xs-12 col-md-6">
   <h2 class="sub-header text-center">Users</h2>
 	<table class="table-responsive">
 		<table class="table table-striped">
