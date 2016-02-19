@@ -6,7 +6,7 @@ $config['menu_choices'] = array(
                     array('name' => 'Main', 'link' => '/main'),
                     array('name' => 'History', 'link' => '/history'),
                     array('name' => 'Profile', 'link' => '/profile'),
-                    array('name' => 'Portfolio', 'link' => '/portfolio/index/Donald'),
+                    array('name' => 'Portfolio', 'link' => '/portfolio'),
             )
  
 );
