@@ -1,6 +1,11 @@
 <div id="content">
-	{mainview}
-        {sideview}
-
+	<div class="jumbotron text-center col-md-12" style="background-image: url(assets/mm.jpg); background-size: 100%;">
+		<div class ="col-xl-12 col-md-6">
+			{mainview}
+		</div>
+		<div class ="col-xl-12 col-md-6">
+			{sideview}
+		</div>
+	</div>
 </div>
 
