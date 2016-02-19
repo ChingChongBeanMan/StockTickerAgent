@@ -1,4 +1,10 @@
+<script type="text/javascript" src="/scripts/dropdown.js" ></script>
+
 <p>Order summary</p>
+<select id="playerdropdown">
+    <option>Select A Player</option>
+    {playerdropdown}
+</select>
 <table class="table">
     <tr><th span="2">Recent Transaction<th></tr>
 
