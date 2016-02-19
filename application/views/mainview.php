@@ -1,4 +1,4 @@
-<div class="col-xs-6">
+<div class ="col-xs-12 col-md-6">
   <h2 class="sub-header text-center">Stocks</h2>
 	<div class="table-responsive">
 		<table class="table table-striped">
