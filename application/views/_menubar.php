@@ -6,11 +6,17 @@
  * and open the template in the editor.
  */
 ?>
-<nav class="navbar navbar-inverse" >
-	<div class="container">
-		{menudata}
-			<button type="button" class="btn btn-default navbar-btn">
-				<a href={link}>{name}</a></button>
-		{/menudata}
-	</div> 
-</nav>
+<div class="row">					
+	<div class="jumbotron text-center col-md-12">
+		<h1>JIM WHY U DO DIS</h1>
+		<ul class="list-inline">
+				{menudata}
+					<li>
+					<button type="button" class="btn btn-primary btn-lg raised">
+					<a href={link}><font color="white">{name}</font></a></button>
+					</li>
+				{/menudata}
+			<li>{login-menu}</li>
+		</ul>
+	</div>
+</div>
