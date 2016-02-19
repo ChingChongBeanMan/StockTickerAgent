@@ -317,6 +317,11 @@ class MY_Model2 extends MY_Model {
         $query = $this->db->get($this->_tableName);
         return $query->result();
     }
+    function getallstocks(){
+       $this->db->select('*');
+       $query = $this->db->get('stocks');
+       return $query;
+    }
 //---------------------------------------------------------------------------
 //  Aggregate functions
 //---------------------------------------------------------------------------
