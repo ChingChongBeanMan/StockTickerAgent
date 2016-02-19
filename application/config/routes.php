@@ -53,6 +53,6 @@ $route['default_controller'] = 'welcome';
 $route['history'] = 'history/generalhistory';
 $route['history/(:any)'] = 'history/stockhistory/$1';
 ///j/$route['[pP]rofile'] = 'Profile';;
-//$route['[pP]rofile/(:any)'] = 'Profile/history/$1';
+$route['[pP]ortfolio/(:any)'] = 'Portfolio/individual/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
