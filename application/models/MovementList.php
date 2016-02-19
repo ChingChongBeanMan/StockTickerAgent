@@ -6,10 +6,10 @@
  * and open the template in the editor.
  */
 
-class ProfileList extends MY_Model2 {
+class MovementList extends MY_Model2 {
     // constructor
     function __construct() {
-        parent::__construct('transactions','Player','DateTime');
+        parent::__construct('movements','Code','DateTime');
     }
-
+     
 }

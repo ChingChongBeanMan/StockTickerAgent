@@ -68,61 +68,45 @@ class Portfolio extends My_Controller{
         $this->data['pagebody'] = '/portfolio';
         $this->render();
      }
- 
-      
-
-   /* public function index($name)
-	{
-          //  $this->load->library('Portfolio','parser');
-            $this->load->model('profilelist');
-            $this->data['title'] = 'WHAT IS THIS FOR';
-            $this->data['pagebody'] = 'portfolio';
-            
-            
-         //   $this->history($name);
-         //   $this->holding($name);
- //           $this->load->model('profilelist');
-            $recent = $this->ProfileList->some('Player',$name);
-            
-            $lists = array();
-            foreach($recent as $list){
-                $this1 = array(
-                    'time' => $list->DateTime,
-                    'trans' => $list->Trans,
-                    'stock' => $list->Stock,
-                    'qty' => $list->Quantity                       
-                );
-                $lists[] = $this1;
-            }
-            $this->data['ProfileList'] = $lists;
-            
-           // $holding = $this->portfolio->some('Player',$name);
-            $lists2 = array();
-            foreach($recent as $list){
-                $this1 = array(
-                    'trans' => $list->Trans,
-                    'stock' => $list->Stock,
-                    'qty' => $list->Quantity                       
-                );
-            $lists2[] = $this1;
-            }
-            $this->data['ProfileLists'] = $lists;
-            $this->render();
-            
-   }*/
-	public function holding($name){
-            $this->load->model('portfolio');
-            $holding = $this->portfolio->some('Player',$name);
-            $list = array();
-            foreach($history as $list){
-                $this1 = array(
-                    'trans' => $list->Trans,
-                    'stock' => $list->Stock,
-                    'qty' => $list->Quantity                       
-                );
+     public function holding($name){
+        $this->load->model('portfolio');
+        $holding = $this->portfolio->some('Player',$name);
+        $list = array();
+        foreach($history as $list){
+            $this1 = array(
+               'trans' => $list->Trans,
+               'stock' => $list->Stock,
+               'qty' => $list->Quantity                       
+        );
             $lists[] = $this1;
-            }
+        }
             $this->data['lists'] = $lists;
             $this->render();
         } 
-}
+ 
+        public function holdingData($result){
+            $totals = array();
+            foreach($result as $list){
+               if($list->Trans == "buy"){
+                    if (array_key_exists($list->Stock, $totals)) {
+                        $totals[$list->Stock]->Quantity += $list->Quantity;
+                    } else {
+                        $totals[$list->Stock] = clone $list;
+                    }
+                } else {
+                   if (array_key_exists($list->Stock, $totals)) {
+                        $totals[$list->Stock]->Quantity -= $list->Quantity;
+                    } else {
+                        $totals[$list->Stock] = clone $list;
+                        $totals[$list->Stock]->Quantity *= -1;
+                    }
+                }
+            }
+            
+        }
+}       
+        
+        
+        
+        
+        
