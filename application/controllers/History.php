@@ -69,12 +69,15 @@ class History extends My_Controller{
            
     }
     function generalhistory(){
-        $this->load->model('StockList');
+        $this->load->model('ProfileList');
         $this->load->model('MovementList');
         $this->load->library('parser');
         $this->data['title'] = 'Stock History';
-        $result = $this->StockList->all();
-        $result2 = $this->MovementList->all();
+        
+        
+        
+        $result = $this->ProfileList->allInOrder("DateTime");
+        $result2 = $this->MovementList->allInOrder("DateTime");
         $mostRecent = NULL;
         if(empty($result) && empty($result2)){
             $this->stockhistory($mostRecent);

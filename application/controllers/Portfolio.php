@@ -15,10 +15,12 @@ class Portfolio extends My_Controller{
 		$this->data['pagetitle'] = 'Portfolio';
 		
 	}
-	public function index()
+    public function index()
 	{
+
             if ($this->session->userdata('username')) {
                     $this->profile();
+                    
             }
             else {
                     $this->login(); 
@@ -33,6 +35,7 @@ class Portfolio extends My_Controller{
         }
         return $this->parser->parse('tradetable', array('rows' => $result), true);
     }
+
 
     public function login() {
         if($this->input->post('field-username')) {
@@ -68,42 +71,83 @@ class Portfolio extends My_Controller{
         $this->data['pagebody'] = '/portfolio';
         $this->render();
      }
-     public function holding($name){
-        $this->load->model('portfolio');
-        $holding = $this->portfolio->some('Player',$name);
-        $list = array();
-        foreach($history as $list){
+        
+        
+    public function generateDropdown(){
+        $this->load->model('profilelist');
+        $result = $this->ProfileList->some('Player',$name);
+        $this->load->model('Player');
+        $playerresult = $this->Player->all();
+        $players = '';
+        foreach($playerresult as $row){
+            $players .= '<option value =' . $row->Player . '>' . $row->Player . '</option>';
+        }
+        
+        $this->data['playerdropdown'] = $players;
+        
+    }
+
+        
+        
+    public function individual($name){
+        $this->load->model('profilelist');
+        $result = $this->ProfileList->some('Player',$name);
+                
+
+        $recent = $this->recentTrans($result);
+        $holdings = $this->holdingData($result);
+
+
+        $this->data['title'] = 'Portfolio';
+        $this->data['pagebody'] = 'portfolio';
+        $this->data['ProfileList'] = $recent;
+        $this->data['HoldingSummary'] = $holdings;
+        
+    }
+    public function recentTrans($result){
+        $lists = array();
+        foreach($result as $list){
             $this1 = array(
-               'trans' => $list->Trans,
-               'stock' => $list->Stock,
-               'qty' => $list->Quantity                       
-        );
+                'time' => $list->DateTime,
+                'trans' => $list->Trans,
+                'stock' => $list->Stock,
+                'qty' => $list->Quantity
+            );
             $lists[] = $this1;
         }
-            $this->data['lists'] = $lists;
-            $this->render();
-        } 
+        return $lists;
+    }
  
-        public function holdingData($result){
-            $totals = array();
-            foreach($result as $list){
-               if($list->Trans == "buy"){
-                    if (array_key_exists($list->Stock, $totals)) {
-                        $totals[$list->Stock]->Quantity += $list->Quantity;
-                    } else {
-                        $totals[$list->Stock] = clone $list;
-                    }
+    public function holdingData($result){
+        $totals = array();
+        foreach($result as $list){
+            if($list->Trans == "buy"){
+                if (array_key_exists($list->Stock, $totals)) {
+                    $totals[$list->Stock]->Quantity += $list->Quantity;
                 } else {
-                   if (array_key_exists($list->Stock, $totals)) {
-                        $totals[$list->Stock]->Quantity -= $list->Quantity;
-                    } else {
-                        $totals[$list->Stock] = clone $list;
-                        $totals[$list->Stock]->Quantity *= -1;
-                    }
+                    $totals[$list->Stock] = clone $list;
+                }
+            } else {
+               if (array_key_exists($list->Stock, $totals)) {
+                    $totals[$list->Stock]->Quantity -= $list->Quantity;
+                } else {
+                    $totals[$list->Stock] = clone $list;
+                    $totals[$list->Stock]->Quantity *= -1;
                 }
             }
-            
         }
+
+        $holding = array();
+        foreach($totals as $list2){
+            $this2 = array(
+                'stocksum' => $list2->Stock,
+                'qtysum' => $totals[$list2->Stock]->Quantity
+            );
+            $holdings[] = $this2;
+        }
+        return $holdings;
+
+    }
 }       
         
         
