@@ -26,7 +26,12 @@ class History extends My_Controller{
             $result = $this->StockList->some('Stock',$stock);
             $parse = '';
             foreach($result as $row){
-             
+                if($row->Trans == 'buy'){
+                    $row->Trans = '/assets/buy.jpg';
+                }
+                else if($row->Trans == 'sell'){
+                    $row->Trans = '/assets/sell.jpg';
+                }
                $parse .= $this->parser->parse('stocktransactionstable', $row, true);
                 
             }
@@ -55,7 +60,7 @@ class History extends My_Controller{
             
             
            $this->gendropdown();
-           $this->data['intro'] = 'Showing Stock: ' . $stock;
+           $this->data['intro'] = $stock;
            $this->data['movement_history'] = $movparse; 
            $this->data['stock_transactions'] = $parse;
            $this->data['pagebody'] = 'stockhistory';
