@@ -26,10 +26,10 @@
         <th>Stock</th>
         <th>Quantity</th>
     </tr>
-    {ProfileList}
+    {HoldingSummary}
     <tr>
-        <td>{stock}</td>
-        <td>{qty}</td>
+        <td>{stocksum}</td>
+        <td>{qtysum}</td>
     </tr>
-    {/ProfileList}
+    {/HoldingSummary}
 </table>
