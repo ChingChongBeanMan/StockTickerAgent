@@ -1,4 +1,4 @@
-<?php
+ <?php
 class History extends My_Controller{
 
      function __construct()

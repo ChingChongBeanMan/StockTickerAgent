@@ -1,8 +1,8 @@
 <div class="col-xs-6">
-  <h2 class="sub-header">Users</h2>
-	<div class="table-responsive">
+  <h2 class="sub-header text-center">Users</h2>
+	<table class="table-responsive">
 		<table class="table table-striped">
-			<thead class="thead-inverse">
+			 <thead class="thead-inverse">
 				<tr>
 					<th>Name</th>
 					<th>Peanuts</th>
@@ -12,5 +12,5 @@
 			{side}
 		</tbody>
 		</table>
-	</div>
+	</table>
 </div>
