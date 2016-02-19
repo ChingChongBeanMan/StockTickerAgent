@@ -31,7 +31,7 @@ class Welcome extends MY_Controller {
             $this->load->database();
             $this->load->library('table');
             $this->load->library('parser');
-            $sql = ("SELECT Name, Value FROM stocks");
+            $sql = ("SELECT Name, Value, Code FROM stocks");
             $qArr = $this->db->query($sql);
             $result = '';
             foreach($qArr->result() as $row){

@@ -101,15 +101,31 @@ class MY_Model2 extends MY_Model {
         $query = $this->db->get($this->_tableName);
         return $query->result();
     }
+
     function personalAll($key) {
         $this->db->where($this->_keyField, $key);
         $this->db->order_by($this->_keyField, 'desc');
         $query = $this->db->get($this->_tableName);
         return $query->result();
     }
-    function all() {
+    function allInfo() {
         $query = $this->db->get($this->_tableName);
         return $query->result();
+    }
+
+
+    function getallstocks(){
+       $this->db->select('*');
+       $query = $this->db->get('stocks');
+       return $query;
+    }
+//---------------------------------------------------------------------------
+//  Aggregate functions
+//---------------------------------------------------------------------------
+    // Return all records as an array of objects
+    function all($primary = null) {
+        $this->db->order_by($this->_keyField, 'asc');
+        $this->db->order_by($this->_keyField2, 'asc');
     }
 }
 /* End of file */

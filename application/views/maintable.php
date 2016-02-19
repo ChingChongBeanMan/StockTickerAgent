@@ -1,4 +1,4 @@
 <tr>
-    <td><a href="profile/{Name}">{Name}</a></td>
+    <td><a href="history/{Code}">{Name}</a></td>
     <td>{Value}</td>
 </tr>

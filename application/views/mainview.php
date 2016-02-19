@@ -5,7 +5,7 @@
 			<thead class="thead-inverse">
 				<tr>
 					<th>Name</th>
-					<th>Equity</th>
+					<th>Value</th>
 				</tr>
 			</thead>
 		<tbody>
