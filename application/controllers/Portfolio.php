@@ -24,6 +24,7 @@ class Portfolio extends My_Controller{
             }
             else {
                     $this->login(); 
+                    $this->generateDropdown();
         }
     }
     public function trade_activity($user) {
@@ -75,7 +76,7 @@ class Portfolio extends My_Controller{
         
     public function generateDropdown(){
         $this->load->model('profilelist');
-        $result = $this->ProfileList->some('Player',$name);
+        //$result = $this->ProfileList->some('Player',$name);
         $this->load->model('Player');
         $playerresult = $this->Player->all();
         $players = '';
@@ -102,6 +103,8 @@ class Portfolio extends My_Controller{
         $this->data['pagebody'] = 'portfolio';
         $this->data['ProfileList'] = $recent;
         $this->data['HoldingSummary'] = $holdings;
+        $this->generateDropdown();
+        $this->render();
         
     }
     public function recentTrans($result){
@@ -137,7 +140,7 @@ class Portfolio extends My_Controller{
             }
         }
 
-        $holding = array();
+        $holdings = array();
         foreach($totals as $list2){
             $this2 = array(
                 'stocksum' => $list2->Stock,
