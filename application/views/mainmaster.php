@@ -1,4 +1,6 @@
 <div id="content">
-	{mainview}{sideview}
+	{mainview}
+        {sideview}
+
 </div>
 
