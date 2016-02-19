@@ -21,6 +21,8 @@ class Portfolio extends My_Controller{
             $this->load->model('profilelist');
             $result = $this->ProfileList->some('Player',$name);
    
+            
+            
             $recent = $this->recentTrans($result);
             $holdings = $this->holdingData($result);
            
@@ -48,6 +50,7 @@ class Portfolio extends My_Controller{
             }
                return $lists;
         }
+        
         public function holdingData($result){
             $totals = array();
             foreach($result as $list){

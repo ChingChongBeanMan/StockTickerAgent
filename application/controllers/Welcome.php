@@ -57,5 +57,66 @@ class Welcome extends MY_Controller {
             
             $this->data['pagebody'] = 'mainmaster';
             $this->render();
+            
+            
+            
+            
+            
+            
+            /*            
+            $this->load->library('table');
+            $this->load->library('parser');          
+
+            $Stock = $this->getStock();
+            $Player = $this->getPlayer();
+            
+   //         $this->data['stocklist'] = $Stock;           
+  //          $this->data['playerlist'] = $Player;
+            
+            $maintable['stocklist'] = $Stock;
+            $sidetable['playerlist'] = $Player;
+            $this->data['inside_stuff'] = $this->parser->parse('inside_stuff', $maintable, true);
+
+//            $this->data['mainview'] = 'mainview';
+            $this->data['mainview'] = $this->parser->parse('mainview', $main_data, true);
+            
+            $this->data['side'] = $this->parser->parse('side', $sidetable, true);
+
+ //           $this->data['sideview'] = 'sideview';
+            $this->data['sideview'] = $this->parser->parse('sideview', $side_data, true);
+*/
+            
+            
 	}
+       /*
+       public function getStock(){
+            $this->load->model('stock');
+            $result = $this->Stock->all();
+
+            $list = array();
+            foreach($result as $list){
+                    $this = array(
+                            'name' => $list->Name,
+                            'Value' => $list->Value		
+                    );
+                    $list[] = $this;
+            }
+            return $list;
+        }
+    
+        public function getPlayer(){
+            $this->load->model('player');
+            $result = $this->Player->all();
+
+            $list = array();
+            foreach($result as $list){
+                    $this = array(
+                            'Player' => $list->Profile,
+                            'Cash' => $list->Cash		
+                    );
+                    $list[] = $this;
+            }
+            return $list;
+           }
+        */
 }
