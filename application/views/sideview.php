@@ -1,16 +1,13 @@
-<div class ="col-xs-12 col-md-6">
-  <h2 class="sub-header text-center">Users</h2>
-	<table class="table-responsive">
-		<table class="table table-striped">
-			 <thead class="thead-inverse">
-				<tr>
-					<th>Name</th>
-					<th>Peanuts</th>
-				</tr>
-			</thead>
-		<tbody>
-			{side}
-		</tbody>
+<font color="white"><h2 class="sub-header text-center">Users</h2></font>
+	<div class="CSSTableGenerator">
+		<table>
+			<tr>
+				<td>Name</td>
+				<td>Peanuts</td>
+			</tr>
+			<tr>
+				{side}
+			</tr>
 		</table>
-	</table>
-</div>
+</div>	
+	

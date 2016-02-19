@@ -7,8 +7,8 @@
  */
 ?>
 <div class="row">					
-	<div class="jumbotron text-center col-md-12">
-		<h1>JIM WHY U DO DIS</h1>
+	<div class="jumbotron text-center col-md-12" style="background-image: url(assets/slide.jpg); background-size: 100%;">
+		<font color="white"><h1>Stock Ticker</h1></font>
 		<ul class="list-inline">
 				{menudata}
 					<li>
