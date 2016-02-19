@@ -1,10 +1,11 @@
 <script type="text/javascript" src="/scripts/dropdown.js" ></script>
-<h1>{intro}</h1>
+<h1 style="margin:auto; text-align:center;">{intro}</h1>
+</br>
 <select id="historydropdown">
     <option>Select A Stock</option>
     {dropdown}
 </select>
-</select>
+</br>
 <table class="table">
     <tr><th colspan="4" style="text-align:center;"><h3>Recent Transactions</h3><th></tr>
     <tr>
