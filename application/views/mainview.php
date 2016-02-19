@@ -1,5 +1,5 @@
 <div class="col-xs-6">
-  <h2 class="sub-header">Stocks</h2>
+  <h2 class="sub-header text-center">Stocks</h2>
 	<div class="table-responsive">
 		<table class="table table-striped">
 			<thead class="thead-inverse">
