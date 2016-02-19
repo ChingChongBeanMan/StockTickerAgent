@@ -57,7 +57,8 @@ class Profile extends MY_Controller {
             else {
                     $this->login(); 
         }
-	}
+       
+    }
     public function login() {
         if($this->input->post('field-username')) {
                 $nData = array('username' => $this->input->post('field-username'));
@@ -76,14 +77,15 @@ class Profile extends MY_Controller {
         $this->session->unset_userdata('username');
         $this->data['login-menu'] = $this->parser->parse("login_menu", $this->data, true);
         $this->index();
-
     }
-    public function profile() { 
+
+
+	public function profile() { 
         $this->data['pagetitle'] = $this->session->userdata('username');
-        //$this->data['player-activity'] = $this->trade_activity($this->session->userdata('username'));
+        $this->data['player-activity'] = $this->trade_activity($this->session->userdata('username'));
         $this->data['pagecontent'] = 'profilepage';
         $this->data['pagebody'] = 'profilepage';
         $this->data['page'] = 'profilepage';
         $this->render();
-        } 
+    } 
 }

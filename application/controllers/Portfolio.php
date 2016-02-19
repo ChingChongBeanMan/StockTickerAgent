@@ -15,42 +15,75 @@ class Portfolio extends My_Controller{
 		$this->data['pagetitle'] = 'Portfolio';
 		
 	}
-        
-    public function index($name)
+	public function index()
 	{
-            $this->load->model('profilelist');
-            $result = $this->ProfileList->some('Player',$name);
-   
-            
-            
-            $recent = $this->recentTrans($result);
-            $holdings = $this->holdingData($result);
-           
-            
-
-            
-            $this->data['title'] = 'Portfolio';
-            $this->data['pagebody'] = 'portfolio';
-            $this->data['ProfileList'] = $recent;
-            $this->data['HoldingSummary'] = $holdings;
-                          
-            $this->render();
-
-    }
-        public function recentTrans($result){
-            $lists = array();
-            foreach($result as $list){
-                $this1 = array(
-                    'time' => $list->DateTime,
-                    'trans' => $list->Trans,
-                    'stock' => $list->Stock,
-                    'qty' => $list->Quantity                       
-                );
-                $lists[] = $this1;
+            if ($this->session->userdata('username')) {
+                    $this->profile();
             }
-               return $lists;
+            else {
+                    $this->login(); 
         }
-        
+    }
+    public function trade_activity($user) {
+        $result = '';
+        $query = $this->Transaction->get_player_transaction($user);
+     
+        foreach ($query->result() as $row) {
+          $result .= $this->parser->parse('traderow', (array) $row, true);
+        }
+        return $this->parser->parse('tradetable', array('rows' => $result), true);
+    }
+
+    public function login() {
+        if($this->input->post('field-username')) {
+                $nData = array('username' => $this->input->post('field-username'));
+                $this->session->set_userdata($nData);
+                $this->data['login-menu'] = $this->parser->parse("logout_menu", $this->data, true);
+                $this->index();
+            } else {
+                $this->data['pagetitle'] = "Login";
+                $this->data['page'] = 'login';
+                $this->data['pagecontent'] = 'login';
+                $this->data['pagebody'] = 'login';
+                $this->render();
+              }
+        }
+    public function logout(){
+        $this->session->unset_userdata('username');
+        $this->data['login-menu'] = $this->parser->parse("login_menu", $this->data, true);
+        $this->index();
+    }
+    public function profile()
+    {
+        $this->data['page_title'] = $this->session->userdata('username');
+        $this->data['player-activity'] = $this->trade_activity($this->session->userdata('username'));
+        $this->data['pagebody'] = 'tradetable';
+        $this->render();
+     }
+    
+     public function detail($i)
+     {
+        $this->data['page_title'] = $i;
+        $this->data['player-activity'] = $this->trade_activity($i);
+        $this->data['pagebody'] = '/portfolio';
+        $this->render();
+     }
+     public function holding($name){
+        $this->load->model('portfolio');
+        $holding = $this->portfolio->some('Player',$name);
+        $list = array();
+        foreach($history as $list){
+            $this1 = array(
+               'trans' => $list->Trans,
+               'stock' => $list->Stock,
+               'qty' => $list->Quantity                       
+        );
+            $lists[] = $this1;
+        }
+            $this->data['lists'] = $lists;
+            $this->render();
+        } 
+ 
         public function holdingData($result){
             $totals = array();
             foreach($result as $list){
@@ -70,15 +103,6 @@ class Portfolio extends My_Controller{
                 }
             }
             
-            $holdings = array();
-            foreach($totals as $list3){
-                $this2= array(
-                    'stocksum' => $list3->Stock,
-                    'qtysum' => $totals[$list3->Stock]->Quantity   
-                );
-                $holdings[] = $this2;
-            }
-            return $holdings;
         }
 }       
         

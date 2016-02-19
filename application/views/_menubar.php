@@ -16,7 +16,7 @@
 					<a href={link}><font color="white">{name}</font></a></button>
 					</li>
 				{/menudata}
-			<li>{login-menu}</li>
+			{login-menu}
 		</ul>
 	</div>
 </div>
