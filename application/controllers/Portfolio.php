@@ -20,10 +20,12 @@ class Portfolio extends My_Controller{
 
             if ($this->session->userdata('username')) {
                     $this->profile();
+                   echo "in";
                     
             }
             else {
-                    $this->login(); 
+                   
+                    echo "not hello";
                     $this->generateDropdown();
         }
     }
@@ -96,7 +98,7 @@ class Portfolio extends My_Controller{
                 
 
         $recent = $this->recentTrans($result);
-        $holdings = $this->holdingData($result);
+        $holdings = $this->ProfileList->getheldstocks($result);
 
 
         $this->data['title'] = 'Portfolio';

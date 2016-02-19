@@ -4,10 +4,12 @@
 			<tr>
 				<td>Name</td>
 				<td>Peanuts</td>
+                                 <td>Equity</td>
+
 			</tr>
-			<tr>
+			
 				{side}
-			</tr>
+			
 		</table>
 </div>	
 	

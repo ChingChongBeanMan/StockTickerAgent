@@ -4,10 +4,10 @@
 			<tr>
 				<td>Name</td>
 				<td>Value</td>
+                               
 			</tr>
-			<tr>
+			
 				{inside_stuff}
-			</tr>
 		</table>
 </div>	
 	
