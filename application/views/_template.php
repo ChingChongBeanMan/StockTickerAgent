@@ -16,7 +16,7 @@
 			{content}
 		
         </div>
-        <div id="footer" class="span12">
+        <div id="footer" class="span12" style ="color : #FFFFFF; text-align: center;">
             Copyright &copy; 2015-2016,  <a href="mailto:someone@somewhere.com">Me</a>.
         </div>
         <script src="/assets/js/jquery-1.11.1.min.js"></script>
