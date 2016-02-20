@@ -20,10 +20,12 @@ class Portfolio extends My_Controller{
 
             if ($this->session->userdata('username')) {
                     $this->profile();
+                   echo "in";
                     
             }
             else {
-                    $this->login(); 
+                   
+                    echo "not hello";
                     $this->generateDropdown();
         }
     }
@@ -76,7 +78,6 @@ class Portfolio extends My_Controller{
         
     public function generateDropdown(){
         $this->load->model('profilelist');
-        //$result = $this->ProfileList->some('Player',$name);
         $this->load->model('Player');
         $playerresult = $this->Player->all();
         $players = '';
@@ -92,17 +93,20 @@ class Portfolio extends My_Controller{
         
     public function individual($name){
         $this->load->model('profilelist');
-        $result = $this->ProfileList->some('Player',$name);
+        $result = $this->ProfileList->some('Play
+            er',$name);
                 
 
         $recent = $this->recentTrans($result);
-        $holdings = $this->holdingData($result);
-
+        
+       // $holdingsarray = $this->ProfileList->getheldstocks($result);
+        $holdings = $this->holdingData($this->ProfileList->getheldstocks($result));
 
         $this->data['title'] = 'Portfolio';
         $this->data['pagebody'] = 'portfolio';
-        $this->data['ProfileList'] = $recent;
+        $this->data['ProfileSummary'] = $recent;
         $this->data['HoldingSummary'] = $holdings;
+        $this->data['PlayerName'] = $name;
         $this->generateDropdown();
         $this->render();
         
@@ -121,24 +125,8 @@ class Portfolio extends My_Controller{
         return $lists;
     }
  
-    public function holdingData($result){
-        $totals = array();
-        foreach($result as $list){
-            if($list->Trans == "buy"){
-                if (array_key_exists($list->Stock, $totals)) {
-                    $totals[$list->Stock]->Quantity += $list->Quantity;
-                } else {
-                    $totals[$list->Stock] = clone $list;
-                }
-            } else {
-               if (array_key_exists($list->Stock, $totals)) {
-                    $totals[$list->Stock]->Quantity -= $list->Quantity;
-                } else {
-                    $totals[$list->Stock] = clone $list;
-                    $totals[$list->Stock]->Quantity *= -1;
-                }
-            }
-        }
+    public function holdingData($totals){
+
 
         $holdings = array();
         foreach($totals as $list2){

@@ -33,8 +33,11 @@ class Welcome extends MY_Controller {
             $this->load->library('parser');
             $sql = ("SELECT Name, Value, Code FROM stocks");
             $qArr = $this->db->query($sql);
+            $equityarray =  $this->getEquity();
             $result = '';
             foreach($qArr->result() as $row){
+               
+             
                 $result .= $this->parser->parse('maintable', $row, true);             
             }
             
@@ -46,6 +49,7 @@ class Welcome extends MY_Controller {
             $qArr = $this->db->query($sql);
             $result_side = '';
             foreach($qArr->result() as $row){
+                $row->Equity  =  $equityarray[$row->Player];
                 $result_side .= $this->parser->parse('sidetable', $row, true);             
             }
             
@@ -88,6 +92,48 @@ class Welcome extends MY_Controller {
             
             
 	}
+        public function getEquity(){
+            $this->load->model('ProfileList');
+            $this->load->model('Player');
+            $this->load->model('Stocks');
+            $players = $this->Player->all();
+            $stock = $this->Stocks->all();
+            $equity = array();
+            
+            $stockvalues = $this->Player->getstockvalue($stock);
+          
+             //$result = $this->ProfileList->some('Player',$name);
+              //$recent = $this->recentTrans($result);
+              //$holdings = $this->ProfileList->getheldstocks($result);
+
+       
+            $x = 0;
+            
+            foreach($players as $player){
+               
+                $resultname = $this->ProfileList->some('Player',$player->Player);
+
+                $heldstocks = $this->ProfileList->getheldstocks($resultname);
+                $equity[$player->Player] = 0;
+                foreach($heldstocks as $ss){
+                 
+                    if($ss->Quantity < 0){
+                        $ss->Quantity = 0;
+                    }
+                    
+                    $equity[$player->Player] += $ss->Quantity * $stockvalues[$ss->Stock];
+
+                    //$equity[$x] = $player->Player;
+                    //$equity[$x+1] += $stocknum * $stockvalues[$stockname];
+                    
+                }
+               
+                echo $equity[$player->Player];
+                echo '</br>';
+            }
+           
+            return $equity;
+        }
        /*
        public function getStock(){
             $this->load->model('stock');
