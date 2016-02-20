@@ -51,13 +51,6 @@ class History extends My_Controller{
                 }
                 $movparse .= $this->parser->parse('movementtable', $row, true);
             }
-           
-            
-            
-            
-            
-            
-            
             
            $this->gendropdown();
            $this->data['intro'] = $stock;
@@ -72,9 +65,7 @@ class History extends My_Controller{
         $this->load->model('ProfileList');
         $this->load->model('MovementList');
         $this->load->library('parser');
-        $this->data['title'] = 'Stock History';
-        
-        
+        $this->data['title'] = 'Stock History';  
         
         $result = $this->ProfileList->allInOrder("DateTime");
         $result2 = $this->MovementList->allInOrder("DateTime");

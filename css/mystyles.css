@@ -1,3 +1,24 @@
+.menu-bar{
+	background-image: url(../assets/mb.jpg); 
+	background-size: 100%;
+}
+.bb
+{
+	background-image: url(../assets/mm.jpg); 
+	background-size: 100%;
+}
+.styled-select {
+	background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 5;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   background: url(assets/down_arrow_select.jpg) no-repeat right #ddd;
+}
 .CSSTableGenerator {
 	margin:0px;padding:0px;
 	width:100%;
