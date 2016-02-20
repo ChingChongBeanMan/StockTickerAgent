@@ -1,6 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$config['menu_choices'] = array(
+        'menudata' => array(
+                    array('name' => 'Main', 'link' => '/'),
+                    array('name' => 'History', 'link' => '/history'),
+                    //array('name' => 'Profile', 'link' => '/profile'),
+                    array('name' => 'Portfolio', 'link' => '/portfolio'),
+            )
+ 
+);
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -23,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+$config['base_url'] = '/';
 
 /*
 |--------------------------------------------------------------------------
