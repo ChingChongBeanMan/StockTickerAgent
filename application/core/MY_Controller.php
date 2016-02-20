@@ -17,14 +17,6 @@ class MY_Controller extends CI_Controller {
         $this->errors = array();
         $this->data['pagetitle'] = 'Stock Game';
 		$this->load->helper('html');
-
-        //Login
-        if($this->session->userdata('username')) {
-            $this->data['login-menu'] = $this->parser->parse('logout_menu', $this->data, true);         
-        }
-        else {
-            $this->data['login-menu'] = $this->parser->parse('login_menu', $this->data, true);
-        } 
     }
 
     /**
@@ -32,7 +24,22 @@ class MY_Controller extends CI_Controller {
      */
     function render()
     {
-        $this->data['menubar'] = $this ->parser->parse('_menubar', $this->config->item('menu_choices'),true);
+        //Login
+        if($this->session->userdata('username')) {
+            $this->data['login-menu'] = '<a class="btn btn-primary btn- lg" href="/Portfolio/logout">LOGOUT</a>';//$this->parser->parse('logout_menu', $this->data, true);         
+        }
+        else {
+            $this->data['login-menu'] = '<a class="btn btn-primary btn- lg" href="/Portfolio/login/">LOGIN</a>';//$this-> parser->parse('login_menu', $this->data, true);
+        } 
+
+        //$this->data['login-menu'] = $this->parser->parse('login_menu', $this->data, true);
+
+        $x = $this->config->item('menu_choices');
+        $x['login-menu'] = $this->data['login-menu'];
+
+        $this->data['menubar'] = $this ->parser->parse('_menubar', $x,true);
+
+
 		$this->data['content'] = $this ->parser->parse('mainmaster', $this->config->item('menu_choices'),true);
         $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
         $this->data['data'] = &$this->data;
