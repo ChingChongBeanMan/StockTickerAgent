@@ -100,7 +100,6 @@ class Portfolio extends My_Controller{
 
         $recent = $this->recentTrans($result);
         
-       // $holdingsarray = $this->ProfileList->getheldstocks($result);
         $holdings = $this->holdingData($this->ProfileList->getheldstocks($result));
 
         $this->data['title'] = 'Portfolio';
