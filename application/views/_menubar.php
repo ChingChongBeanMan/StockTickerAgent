@@ -17,7 +17,9 @@
 				<a href={link}><font color="white">{name}</font></a></button>
 				</li>
 			{/menudata}
-		{login-menu}
+			<button type="button" class="btn btn-primary btn-lg outline">
+				<a href="/Portfolio/"><font color="white">LOGIN</font></a>
+			</button>
 	</ul>
  </div>
 </div>
