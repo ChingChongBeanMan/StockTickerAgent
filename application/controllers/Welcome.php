@@ -62,7 +62,7 @@ class Welcome extends MY_Controller {
             $this->render();            
             
 	}//Gets the equity for each player
-        public function getEquity(){
+          public function getEquity(){
             $this->load->model('ProfileList');
             $this->load->model('Player');
             $this->load->model('Stocks');
@@ -72,7 +72,7 @@ class Welcome extends MY_Controller {
             $stock = $this->Stocks->all();
             $equity = array();
             //Get the values of each stock
-            $stockvalues = $this->Player->getstockvalue($stock);
+            $stockvalues = $this->getstockvalue($stock);
             //Loop through each player
             foreach($players as $player){
                
@@ -88,10 +88,16 @@ class Welcome extends MY_Controller {
                     //Add the value of held stocks to each players account
                     $equity[$player->Player] += $ss->Quantity * $stockvalues[$ss->Stock];
                 }
-               
             }
            
             return $equity;
+        }
+        function getstockvalue($result){
+            $values = array();     
+            foreach($result as $stock){
+                $values[$stock->Code] = $stock->Value;
+            }
+            return $values;
         }
     
 }

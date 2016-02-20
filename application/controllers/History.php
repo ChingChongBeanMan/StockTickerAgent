@@ -17,8 +17,7 @@ class History extends My_Controller{
         //Loop through stocks, add to view
         foreach($result as $row){
             $this1 = array(
-               'stockname' => $row->Code,
-                
+               'stockname' => $row->Code,   
             );
             $lists[] = $this1; 
         }

@@ -11,5 +11,5 @@ class Stocks extends MY_Model {
     function __construct() {
         parent::__construct('stocks','Name');
     }
-    
+
 }

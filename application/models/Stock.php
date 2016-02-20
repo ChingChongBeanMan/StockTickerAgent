@@ -6,6 +6,7 @@
  * and open the template in the editor.
  */
 
+//the model for stcok 
 class Main extends MY_Model {
     // constructor
     function __construct() {

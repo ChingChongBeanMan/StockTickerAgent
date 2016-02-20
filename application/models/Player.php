@@ -6,10 +6,11 @@
  * and open the template in the editor.
  */
 
+//the model for player table
 class Player extends MY_Model {
     // constructor
     function __construct() {
         parent::__construct('players','Player');
     }
-
+    
 }
