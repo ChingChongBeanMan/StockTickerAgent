@@ -15,7 +15,7 @@ class MY_Model extends CI_Model {
         $this->_keyField = $keyfield;
     }
 
-    //get all value from the table if $what is $which
+    //get all value from the table if $what is $which order by primary key
     function some($what, $which) {
         $this->db->order_by($this->_keyField1, 'desc');
         $this->db->where($what, $which);
@@ -36,7 +36,6 @@ class MY_Model extends CI_Model {
         return $query->result();
     }
 }
-
 // the model for table which has 2 primary key
 class MY_Model2 extends MY_Model {
        protected $_keyField2;                 // second part of composite primary key
@@ -47,7 +46,7 @@ class MY_Model2 extends MY_Model {
         $this->_keyField2 = $keyfield2;
     }
 
-    //get al
+    //get all value from the table if $what is $which order by 2nd primary key
     function some($what, $which) {
         $this->db->order_by($this->_keyField2, 'desc');
         $this->db->where($what, $which);

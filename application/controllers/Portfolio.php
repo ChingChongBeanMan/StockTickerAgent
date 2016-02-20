@@ -16,29 +16,18 @@ class Portfolio extends My_Controller{
 		$this->data['pagetitle'] = 'Portfolio';
 		
 	}
+    //Checks to see if there is a current session running. 
     public function index()
 	{
 
             if ($this->session->userdata('username')) {
                    $this->individual($this->session->userdata('username'));
-                   
-                    
             }
             else {
                    $this->individual('');
         }
     }
-    public function trade_activity($user) {
-        $result = '';
-        $query = $this->Transaction->get_player_transaction($user);
-     
-        foreach ($query->result() as $row) {
-          $result .= $this->parser->parse('traderow', (array) $row, true);
-        }
-        return $this->parser->parse('tradetable', array('rows' => $result), true);
-    }
-
-
+    //Creates a session variable based on a user name
     public function login() {
         if($this->input->post('field-username')) {
                 $nData = array('username' => $this->input->post('field-username'));
@@ -53,18 +42,20 @@ class Portfolio extends My_Controller{
                 $this->render();
               }
         }
+    //Destroys user session
     public function logout() {
         $this->session->unset_userdata('username');
         $this->data['login-menu'] = $this->parser->parse("login_menu", $this->data, true);
         $this->index();
     }
+    //Displays profile for a current user
     public function profile()
     {
         $this->data['page_title'] = $this->session->userdata('username');
         $this->data['player-activity'] = $this->individual($this->session->userdata('username'));
         $this->data['pagebody'] = 'tradetable';
      }
-    
+    //Displays profile for a specific user
      public function detail($i)
      {
         $this->data['page_title'] = $i;
@@ -73,7 +64,7 @@ class Portfolio extends My_Controller{
         $this->render();
      }
         
-        
+    //Generates a dropdown list of all users in data base    
     public function generateDropdown(){
         $this->load->model('profilelist');
         $this->load->model('Player');
@@ -88,11 +79,7 @@ class Portfolio extends My_Controller{
         $this->data['playerdropdown'] = $lists;
     }
 
-        
-    
-
-        
-        
+    //Gets the individual data of the user 
     public function individual($name){
         $this->load->model('profilelist');
         $result = $this->ProfileList->some('Player',$name);
@@ -111,6 +98,7 @@ class Portfolio extends My_Controller{
         $this->render();
         
     }
+    //Gets the recent transactions of the user
     public function recentTrans($result){
         $lists = array();
         foreach($result as $list){
@@ -124,10 +112,8 @@ class Portfolio extends My_Controller{
         }
         return $lists;
     }
- 
+    //Gets the holdings info of the user 
     public function holdingData($totals){
-
-
         $holdings = array();
         foreach($totals as $list2){
             $this2 = array(
@@ -137,11 +123,5 @@ class Portfolio extends My_Controller{
             $holdings[] = $this2;
         }
         return $holdings;
-
     }
 }       
-        
-        
-        
-        
-        
