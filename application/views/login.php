@@ -1,3 +1,4 @@
+<!-- Displays the page for a login. -->>
 <center>
 <form method="post" action"">
     <div class="form-group">
