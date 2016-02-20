@@ -6,6 +6,8 @@
 <select class="styled-select" id="playerdropdown">
     <option>Select A Player</option>
     {playerdropdown}
+        <option value ="{playername}">{playername}</option>;
+    {/playerdropdown}
 </select>
 </br>
 

@@ -20,14 +20,12 @@ class Portfolio extends My_Controller{
 	{
 
             if ($this->session->userdata('username')) {
-                    $this->profile();
-                   echo "in";
+                   $this->individual($this->session->userdata('username'));
+                   
                     
             }
             else {
-                   
-                    echo "not hello";
-                    $this->generateDropdown();
+                   $this->individual('');
         }
     }
     public function trade_activity($user) {
@@ -80,18 +78,24 @@ class Portfolio extends My_Controller{
         $this->load->model('profilelist');
         $this->load->model('Player');
         $playerresult = $this->Player->all();
-        $players = '';
         foreach($playerresult as $row){
-            $players .= '<option value =' . $row->Player . '>' . $row->Player . '</option>';
+            $this1 = array(
+               'playername' => $row->Player,
+                
+            );
+            $lists[] = $this1; 
         }
-        
-        $this->data['playerdropdown'] = $players;
-        
+        $this->data['playerdropdown'] = $lists;
     }
+
+        
+    
+
+        
+        
     public function individual($name){
         $this->load->model('profilelist');
-        $result = $this->ProfileList->some('Play
-            er',$name);
+        $result = $this->ProfileList->some('Player',$name);
                 
 
         $recent = $this->recentTrans($result);

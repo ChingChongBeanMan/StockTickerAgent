@@ -31,24 +31,19 @@ class Welcome extends MY_Controller {
             $this->load->database();
             $this->load->library('table');
             $this->load->library('parser');
-            $sql = ("SELECT Name, Value, Code FROM stocks");
-            $qArr = $this->db->query($sql);
+            $this->load->model('Stocks');
+            $this->load->model('Player');
+            $qArr = $this->Stocks->all();
             $equityarray =  $this->getEquity();
             $result = '';
-            foreach($qArr->result() as $row){
-               
-             
+            foreach($qArr as $row){
+                            
                 $result .= $this->parser->parse('maintable', $row, true);             
             }
             
-            //$parms['inside_stuff'] = $result;
-            //$this->parser->parse('mainview', $parms);
-                
-            //$this->data['inside_stuff'] = $result;
-            $sql = ("SELECT * FROM players");
-            $qArr = $this->db->query($sql);
+            $qArr = $this->Player->all();
             $result_side = '';
-            foreach($qArr->result() as $row){
+            foreach($qArr as $row){
                 $row->Equity  =  $equityarray[$row->Player];
                 $result_side .= $this->parser->parse('sidetable', $row, true);             
             }
@@ -60,36 +55,7 @@ class Welcome extends MY_Controller {
             $this->data['sideview'] = $this->parser->parse('sideview', $side_data, true);
             
             $this->data['pagebody'] = 'mainmaster';
-            $this->render();
-            
-            
-            
-            
-            
-            
-            /*            
-            $this->load->library('table');
-            $this->load->library('parser');          
-
-            $Stock = $this->getStock();
-            $Player = $this->getPlayer();
-            
-   //         $this->data['stocklist'] = $Stock;           
-  //          $this->data['playerlist'] = $Player;
-            
-            $maintable['stocklist'] = $Stock;
-            $sidetable['playerlist'] = $Player;
-            $this->data['inside_stuff'] = $this->parser->parse('inside_stuff', $maintable, true);
-
-//            $this->data['mainview'] = 'mainview';
-            $this->data['mainview'] = $this->parser->parse('mainview', $main_data, true);
-            
-            $this->data['side'] = $this->parser->parse('side', $sidetable, true);
-
- //           $this->data['sideview'] = 'sideview';
-            $this->data['sideview'] = $this->parser->parse('sideview', $side_data, true);
-*/
-            
+            $this->render();            
             
 	}
         public function getEquity(){
@@ -101,14 +67,7 @@ class Welcome extends MY_Controller {
             $equity = array();
             
             $stockvalues = $this->Player->getstockvalue($stock);
-          
-             //$result = $this->ProfileList->some('Player',$name);
-              //$recent = $this->recentTrans($result);
-              //$holdings = $this->ProfileList->getheldstocks($result);
-
-       
-            $x = 0;
-            
+      
             foreach($players as $player){
                
                 $resultname = $this->ProfileList->some('Player',$player->Player);
@@ -116,51 +75,15 @@ class Welcome extends MY_Controller {
                 $heldstocks = $this->ProfileList->getheldstocks($resultname);
                 $equity[$player->Player] = 0;
                 foreach($heldstocks as $ss){
-                 
                     if($ss->Quantity < 0){
                         $ss->Quantity = 0;
                     }
-                    
                     $equity[$player->Player] += $ss->Quantity * $stockvalues[$ss->Stock];
-
-                    //$equity[$x] = $player->Player;
-                    //$equity[$x+1] += $stocknum * $stockvalues[$stockname];
-                    
                 }
                
             }
            
             return $equity;
         }
-       /*
-       public function getStock(){
-            $this->load->model('stock');
-            $result = $this->Stock->all();
-
-            $list = array();
-            foreach($result as $list){
-                    $this = array(
-                            'name' => $list->Name,
-                            'Value' => $list->Value		
-                    );
-                    $list[] = $this;
-            }
-            return $list;
-        }
     
-        public function getPlayer(){
-            $this->load->model('player');
-            $result = $this->Player->all();
-
-            $list = array();
-            foreach($result as $list){
-                    $this = array(
-                            'Player' => $list->Profile,
-                            'Cash' => $list->Cash		
-                    );
-                    $list[] = $this;
-            }
-            return $list;
-           }
-        */
 }
