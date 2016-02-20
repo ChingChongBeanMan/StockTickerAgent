@@ -11,6 +11,7 @@ class Portfolio extends My_Controller{
      function __construct()
 	{
 		parent::__construct();
+        $this->load->library('session');
 		$this->data = array();
 		$this->data['pagetitle'] = 'Portfolio';
 		
@@ -54,7 +55,7 @@ class Portfolio extends My_Controller{
                 $this->render();
               }
         }
-    public function logout(){
+    public function logout() {
         $this->session->unset_userdata('username');
         $this->data['login-menu'] = $this->parser->parse("login_menu", $this->data, true);
         $this->index();
@@ -62,15 +63,14 @@ class Portfolio extends My_Controller{
     public function profile()
     {
         $this->data['page_title'] = $this->session->userdata('username');
-        $this->data['player-activity'] = $this->trade_activity($this->session->userdata('username'));
+        $this->data['player-activity'] = $this->individual($this->session->userdata('username'));
         $this->data['pagebody'] = 'tradetable';
-        $this->render();
      }
     
      public function detail($i)
      {
         $this->data['page_title'] = $i;
-        $this->data['player-activity'] = $this->trade_activity($i);
+        $this->data['player-activity'] = $this->invidividual($i);
         $this->data['pagebody'] = '/portfolio';
         $this->render();
      }
@@ -88,9 +88,6 @@ class Portfolio extends My_Controller{
         $this->data['playerdropdown'] = $players;
         
     }
-
-        
-        
     public function individual($name){
         $this->load->model('profilelist');
         $result = $this->ProfileList->some('Play
