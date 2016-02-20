@@ -8,14 +8,19 @@ class History extends My_Controller{
 		$this->data['pagetitle'] = 'Stocks';
 		
 	}
+    //Generates the dropdown menu for user to select different stocks
     function gendropdown(){
         $this->load->model('Stocks');
         $result = $this->Stocks->all();
         $output = '';
         foreach($result as $row){
-            $output .= '<option value =' . $row->Code . '>' . $row->Code . '</option>';
+            $this1 = array(
+               'stockname' => $row->Code,
+                
+            );
+            $lists[] = $this1; 
         }
-        $this->data['dropdown'] = $output;
+        $this->data['dropdown'] = $lists;
     }
     function stockhistory($stock){
       

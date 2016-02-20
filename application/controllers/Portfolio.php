@@ -80,21 +80,23 @@ class Portfolio extends My_Controller{
         $this->load->model('profilelist');
         $this->load->model('Player');
         $playerresult = $this->Player->all();
-        $players = '';
         foreach($playerresult as $row){
-            $players .= '<option value =' . $row->Player . '>' . $row->Player . '</option>';
+            $this1 = array(
+               'playername' => $row->Player,
+                
+            );
+            $lists[] = $this1; 
         }
-        
-        $this->data['playerdropdown'] = $players;
-        
+        $this->data['playerdropdown'] = $lists;
     }
+        
+    
 
         
         
     public function individual($name){
         $this->load->model('profilelist');
-        $result = $this->ProfileList->some('Play
-            er',$name);
+        $result = $this->ProfileList->some('Player',$name);
                 
 
         $recent = $this->recentTrans($result);
