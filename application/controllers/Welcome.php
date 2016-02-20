@@ -80,8 +80,7 @@ class Welcome extends MY_Controller {
                     }
                     $equity[$player->Player] += $ss->Quantity * $stockvalues[$ss->Stock];
                 }
-                echo $equity[$player->Player];
-                echo '</br>';
+               
             }
            
             return $equity;
