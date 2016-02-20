@@ -27,10 +27,10 @@ class History extends My_Controller{
             $parse = '';
             foreach($result as $row){
                 if($row->Trans == 'buy'){
-                    $row->Trans = '/assets/buy.jpg';
+                    $row->Trans = '/assets/buy.png';
                 }
                 else if($row->Trans == 'sell'){
-                    $row->Trans = '/assets/sell.jpg';
+                    $row->Trans = '/assets/sell.png';
                 }
                $parse .= $this->parser->parse('stocktransactionstable', $row, true);
                 
@@ -46,7 +46,7 @@ class History extends My_Controller{
                     $row->Action = 'assets/up.png';
                 }
                 elseif($row->Action == 'div'){
-                    $row->Action = 'assets/dividend.jpg';
+                    $row->Action = 'assets/div.png';
               
                 }
                 $movparse .= $this->parser->parse('movementtable', $row, true);

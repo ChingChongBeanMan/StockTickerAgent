@@ -1,9 +1,9 @@
 <script type="text/javascript" src="/scripts/dropdown.js" ></script>
 
-<font color="1394BF"><h1 style="margin:auto; text-align:center;">Order Summary</h1></font>
+<font color="1394BF"><h1 style="margin:auto; text-align:center;">{PlayerName}</h1></font>
 </br>
 
-<select class="styled-select" id="historydropdown">
+<select class="styled-select" id="playerdropdown">
     <option>Select A Player</option>
     {playerdropdown}
 </select>
@@ -20,10 +20,16 @@
 						<td>Transaction</td>
 						<td>Stock</td>
 						<td>Quantity</td>
+                                                
 					</tr>
+                                        {ProfileSummary}
 					<tr>
-						{stock_transactions}
+                                            <td>{time}</td>
+                                            <td>{trans}</td>
+                                            <td>{stock}</td>
+                                            <td>{qty}</td>
 					</tr>
+                                        {/ProfileSummary}
 				</table>
 			</div>		
 		</div>
