@@ -5,6 +5,8 @@
 <select class="styled-select" id="historydropdown">
     <option>Select A Stock</option>
     {dropdown}
+    <option value ="{stockname}">{stockname}</option>;
+    {/dropdown}
 </select>
 </br>
 
