@@ -64,37 +64,7 @@ class MY_Model extends CI_Model {
         }
         return $values;
     }
-    function getheldstocks($result){
-         $totals = array();
-        foreach($result as $list){
-            if($list->Trans == "buy"){
-                if (array_key_exists($list->Stock, $totals)) {
-                    $totals[$list->Stock]->Quantity += $list->Quantity;
-                } else {
-                    $totals[$list->Stock] = clone $list;
-                }
-            } else {
-               if (array_key_exists($list->Stock, $totals)) {
-                    $totals[$list->Stock]->Quantity -= $list->Quantity;
-                } else {
-                    $totals[$list->Stock] = clone $list;
-                    $totals[$list->Stock]->Quantity *= -1;
-                }
-            }
-        }
-
-        $holdings = array();
-        foreach($totals as $list2){
-            $this2 = array(
-                'stocksum' => $list2->Stock,
-                'qtysum' => $totals[$list2->Stock]->Quantity
-            );
-            $holdings[] = $this2;
-        }
-        return $holdings;
-
-    
-    }
+ 
 }
 
 
