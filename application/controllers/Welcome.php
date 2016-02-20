@@ -128,8 +128,6 @@ class Welcome extends MY_Controller {
                     
                 }
                
-                echo $equity[$player->Player];
-                echo '</br>';
             }
            
             return $equity;
