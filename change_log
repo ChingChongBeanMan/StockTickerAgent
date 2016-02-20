@@ -1,0 +1,822 @@
+commit 62f1766f2683c39ce73cc1cf1f22180c03b12e0b
+Merge: 1c6fbac 4078049
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 21:22:30 2016 -0800
+
+    Merge pull request #36 from imoongom/Develop
+    
+    fix errors, modify MY_model and add comment for model
+
+commit 40780494305e4efd634911fc32c9388190507691
+Author: imoongom <imoongom@gmail.com>
+Date:   Fri Feb 19 20:46:38 2016 -0800
+
+    attach login and logout view
+
+commit 5443a02804a787a345182dd95c7f602e40d5dee0
+Merge: ea1717d 1c6fbac
+Author: imoongom <imoongom@gmail.com>
+Date:   Fri Feb 19 20:40:53 2016 -0800
+
+    add comment and fix MY_MODEL
+
+commit ea1717d86db3f85abd690c34b9adce6e474be132
+Author: imoongom <imoongom@gmail.com>
+Date:   Fri Feb 19 20:29:15 2016 -0800
+
+    fix my_model
+
+commit b14cecdc4a94c82e213871a6bbbd9563442eac19
+Author: imoongom <imoongom@gmail.com>
+Date:   Fri Feb 19 20:27:52 2016 -0800
+
+    fix model structure
+
+commit 1c6fbac6416fa140bfde4177b00a69051909ea2b
+Merge: dd1bea7 9c46c59
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 20:16:58 2016 -0800
+
+    Merge pull request #35 from ColinBose/Develop
+    
+    Commenting time
+
+commit 9c46c5987024c64083a3c80e499afb921f34d751
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 20:14:06 2016 -0800
+
+    Added comments
+
+commit dd1bea7a51c1703d23e99de89dbf6f58abb12fe9
+Merge: 169aab6 1ed6d74
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 20:11:07 2016 -0800
+
+    Merge pull request #34 from MartinMinkov/Develop
+    
+    Added comments to template and login views - portfolio controller
+
+commit 1ed6d74e82cc04a484cfe3b6717c90bb95937329
+Author: MartinMinkov <minkovlmartin@gmail.com>
+Date:   Fri Feb 19 20:10:42 2016 -0800
+
+    Added comments to template and login views - portfolio controller
+
+commit 72c36b980116194803b74b220c9e93c0ed1f7697
+Merge: 6c4b042 169aab6
+Author: imoongom <imoongom@gmail.com>
+Date:   Fri Feb 19 19:53:05 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit 169aab63a439696a29dfcc3e25c22bfa978ae016
+Merge: 32e883e 02d3d3e
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 19:52:24 2016 -0800
+
+    Merge pull request #33 from ColinBose/Develop
+    
+    Commenting time
+
+commit 02d3d3eb6670043f5af19be7e063144645ac8616
+Merge: 8f2367c 32e883e
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 19:50:45 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit 8f2367c2250ca28063d756acb98983f8312d70ab
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 19:49:59 2016 -0800
+
+    COMMENT TIME EVERYONE:
+
+commit 6c4b042d35fd7c0dadb0280b3a4010228b308a2a
+Merge: 3b3622c 32e883e
+Author: imoongom <imoongom@gmail.com>
+Date:   Fri Feb 19 19:45:28 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit 32e883e2f5aaa4af16ed2348f777045bc9020057
+Merge: 444dcb2 65a42fe
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 19:44:23 2016 -0800
+
+    Merge pull request #32 from ColinBose/Develop
+    
+    Changed sql statement in welcome
+
+commit 65a42fe984bb68d2b3423d7ea6fa8bc1dc4003b4
+Merge: 49c0cc5 444dcb2
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 19:42:58 2016 -0800
+
+    merging
+
+commit 444dcb2020a229d7f8af7f0ac0820b515080b0e8
+Merge: 1cd7b93 a26316f
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 19:42:12 2016 -0800
+
+    Merge pull request #31 from jerrybeanman/Develop
+    
+    fixed login button again
+
+commit a26316fdd58638fc2b4871690b53c0f9e7218a30
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Fri Feb 19 19:41:10 2016 -0800
+
+    fixed login button again
+
+commit 49c0cc5d38d2d2cad94a2369011727aa7146d5e9
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 19:40:36 2016 -0800
+
+    fix welcome page sql statements
+
+commit a3e3bd3864544f9d4abad77c5f09b598b559dc0f
+Merge: 61b8a32 f8631ca
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 19:32:43 2016 -0800
+
+    Some touchups
+
+commit 3b3622c9beeb2c3f3b26130e8fa36441468b1a25
+Merge: dcf34c8 1cd7b93
+Author: imoongom <imoongom@gmail.com>
+Date:   Fri Feb 19 19:30:25 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit 1cd7b931a8a26f6d3f1692d763e99c5c915cae95
+Merge: f8631ca fce5ed3
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 19:29:43 2016 -0800
+
+    Merge pull request #30 from imoongom/Develop
+    
+    minor changes for view
+
+commit 61b8a32fe1411b4136135e169080ad13e5633da3
+Merge: 32d172f 5a7b92e
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 19:29:20 2016 -0800
+
+    Some touchups
+
+commit dcf34c88a6938d97bbd9cce1983dacfcf047d466
+Merge: fce5ed3 f8631ca
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Fri Feb 19 19:25:42 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit fce5ed3c79e88f41bfe25516a7922364171b5bda
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Fri Feb 19 19:25:20 2016 -0800
+
+    minor changes for view
+
+commit f8631ca46bbdc3fa55609227497d09097b098c25
+Merge: 5a7b92e 3e1a2e7
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 19:25:15 2016 -0800
+
+    Merge pull request #29 from jerrybeanman/Develop
+    
+    fixed login button
+
+commit 3e1a2e73fd816849e629d1e4c3beae9532989a94
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Fri Feb 19 19:24:24 2016 -0800
+
+    fixed login button
+
+commit 32d172f6ce6cb7a2434ce0b099a4ef07dc0784ef
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 19:14:31 2016 -0800
+
+    redo dropdowns
+
+commit 5a7b92ef6b4d82b6dc2b70aa40b49cb8e4c422f7
+Merge: 84da21b 0832c39
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 19:06:11 2016 -0800
+
+    Merge pull request #28 from jerrybeanman/Develop
+    
+    fixed merge conflicts
+
+commit 84da21bebbe747d6554e74643aae1b523f2ccf1e
+Merge: e8cd881 22dcb11
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 19:06:01 2016 -0800
+
+    Merge pull request #27 from MartinMinkov/Develop
+    
+    Login and Logout work with updated codebase
+
+commit 0832c39350d0a912749660c9e753e179edf34167
+Merge: ad1f66b e8cd881
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Fri Feb 19 19:04:07 2016 -0800
+
+    fixed conflicts
+
+commit 22dcb11153ecf5a95da494771222689dec401d04
+Author: MartinMinkov <minkovlmartin@gmail.com>
+Date:   Fri Feb 19 19:00:58 2016 -0800
+
+    Login and Logout work with updated codebase
+
+commit ad1f66b2a6e5aa6fd30e20921b47f5a0afd6a8a8
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Fri Feb 19 18:52:31 2016 -0800
+
+    Adjusted more gui
+
+commit e8cd8819b29a543320fd53f764bd6dc4901da8de
+Merge: 03fc49d 6971c39
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 18:52:12 2016 -0800
+
+    Merge pull request #26 from ColinBose/Develop
+    
+    Go! Some final touchups I hope
+
+commit 6971c39b4f8b6612922e127d8f7a05fc1576fa81
+Merge: 8d2aefe 03fc49d
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 18:48:06 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit 8d2aefe4ffd180f4fabf08f5b2cb64a2d66f84e9
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 18:47:20 2016 -0800
+
+    Finishing touches hopefully
+
+commit 03fc49d167c1e13a23caaa664c028219e9c365b2
+Merge: e6bd53b b5a09dc
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 18:12:13 2016 -0800
+
+    Merge pull request #25 from ColinBose/Develop
+    
+    Added equity to main page
+
+commit b5a09dcc0030fbfc0cae8c136c59b61a18ff7906
+Merge: 8005e48 e6bd53b
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 18:08:36 2016 -0800
+
+    fixed merge conflict
+
+commit 8005e480177eae639be949060cd46c484deb7ae3
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 13:59:56 2016 -0800
+
+    added equity
+
+commit e6bd53b981caffcc5dc16dad5905c5c96016f460
+Merge: e3261f0 de2129a
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 18:03:57 2016 -0800
+
+    Merge pull request #24 from jerrybeanman/Develop
+    
+    added new GUI
+
+commit de2129af8fb7a821584e7c24a0671aaec48a39b5
+Merge: ca2f5e1 e3261f0
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Fri Feb 19 18:02:40 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit ca2f5e151a3f75252a262b28e6d5e5d389581c8f
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Fri Feb 19 18:00:59 2016 -0800
+
+    fixed images with GUI
+
+commit ebe91cb876c0c365062bb361d58d9552d05ef92a
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Fri Feb 19 15:45:08 2016 -0800
+
+    adjusted menu
+
+commit e3261f05ac5bb5fd428beee8213401248108987e
+Merge: 48b4059 a7b3116
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 15:18:54 2016 -0800
+
+    Merge pull request #23 from jerrybeanman/Develop
+    
+    added new main page
+
+commit aefdf996b9075da468485476425643fa50ed9284
+Merge: 0cf4188 48b4059
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Fri Feb 19 15:11:02 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit 48b40591aba45a1b4e7e1ac4a76e05db7470df2a
+Merge: 117b6a7 b59108c
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 15:10:47 2016 -0800
+
+    Merge pull request #22 from ColinBose/Develop
+    
+    Added dropdown to portfolio
+
+commit 0cf41887a139616dd877d441775d3312aa71b703
+Merge: a7b3116 117b6a7
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Fri Feb 19 15:09:19 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit a7b3116722879744216456e8c31211eb3978496f
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Fri Feb 19 15:08:41 2016 -0800
+
+    added new main page
+
+commit b59108cc95f4263432353aef6e4d350698b74a1a
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 13:59:56 2016 -0800
+
+    Added dropdown to portfolio
+
+commit 117b6a738cc3a30d380a1486f983f18f79c75ac3
+Merge: 6221070 c62e2bf
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 14:53:52 2016 -0800
+
+    Merge pull request #21 from ColinBose/Develop
+    
+    Fixed some merge issues
+
+commit c62e2bfa1305b9a297ccc2629e94f2940c1b6ede
+Merge: e2b50cc 6221070
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 13:59:56 2016 -0800
+
+    Fixing merge conflictcs
+
+commit e2b50cc17542a355933f0f51040afe85888a390e
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 13:59:56 2016 -0800
+
+    Changing history page
+
+commit 62210707ea07a3c99af2ba9f6b75c1d1b0e32eef
+Merge: 493f1f4 6e89cac
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 13:48:04 2016 -0800
+
+    Merge pull request #20 from MartinMinkov/Develop
+    
+    Merging Changes
+
+commit 493f1f4c256cf457c1d5f1ad7a61eab89c971358
+Merge: 8425953 90b77d8
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 13:47:56 2016 -0800
+
+    Merge pull request #19 from imoongom/Develop
+    
+    fix bootstrap table view in main page
+
+commit 6e89cac61b40adf043b647b7dd058c2826070f4f
+Merge: 0c45972 8425953
+Author: MartinMinkov <minkovlmartin@gmail.com>
+Date:   Fri Feb 19 13:47:54 2016 -0800
+
+    Working on player activity
+
+commit 90b77d8c5562bfa6246a1e6a8f71436086c77860
+Merge: d438ad1 8425953
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Fri Feb 19 12:18:44 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit d438ad14b7ecb6de785ba861365d0c0ce3e75c67
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Fri Feb 19 12:18:37 2016 -0800
+
+    fix mainpage table view
+
+commit 8425953380145a1de5f98b5da9899755828be657
+Merge: 58f5e15 cbd3f16
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 12:07:16 2016 -0800
+
+    Merge pull request #17 from ColinBose/Develop
+    
+    Eunwon tell me
+
+commit 0c45972c4345c4d101f7f4a3fbd43ced3336cb6d
+Author: MartinMinkov <minkovlmartin@gmail.com>
+Date:   Fri Feb 19 12:05:47 2016 -0800
+
+    Working on player activity
+
+commit cbd3f1680fa8291d22d6aa5b89d64d8a8fc4ca99
+Merge: 7c62107 58f5e15
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 12:04:59 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit 7c62107d421088aaada0ad8aec249f92a2915f2a
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Fri Feb 19 12:04:54 2016 -0800
+
+    Working on history
+
+commit 58f5e15e363030242961c8317d3ff582051ccb67
+Merge: 2e3f6be 65e78d4
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 12:03:28 2016 -0800
+
+    Merge pull request #16 from imoongom/Develop
+    
+    fix portfolio with model
+
+commit 65e78d44ed8fa0ace35bd0fe3a925bb4f0bcc5dd
+Merge: 8d10d85 2e3f6be
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Fri Feb 19 11:58:35 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit 8d10d85965da7f2b6d30ada67af46c9bd2a55f4f
+Merge: 2b79a9f 31287d3
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Fri Feb 19 11:58:23 2016 -0800
+
+    change errors
+
+commit 2e3f6be5899c0a4ec97f9b91f4bbee190d835338
+Merge: 31287d3 7ec8768
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 11:51:23 2016 -0800
+
+    Merge pull request #15 from jerrybeanman/Develop
+    
+    added new GUI
+
+commit 2b79a9f3f20fea90e3c8a7857ea448080dd83163
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Fri Feb 19 11:47:45 2016 -0800
+
+    Add functions for stockticker
+
+commit 7ec87681cd3c1cc5ca978fb0b4c35fbbd89c63b7
+Merge: e906be2 31287d3
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Fri Feb 19 11:29:38 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit e906be24781401143de9a5fd08070e6fb3ece84c
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Fri Feb 19 11:29:20 2016 -0800
+
+    added new gui
+
+commit 31287d318a4e2d2e56326db689d9d2848374dd12
+Merge: 097623a 47a876f
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Fri Feb 19 11:28:41 2016 -0800
+
+    Merge pull request #13 from ColinBose/Develop
+    
+    Added History Page
+
+commit 64f4eff6a034efa4bdd0e6897c06aeea6cb012a9
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Fri Feb 19 01:22:04 2016 -0800
+
+    fix portfolio model
+
+commit 47a876f1242cc5e79940bd1cd903182264b4c207
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Thu Feb 18 21:59:23 2016 -0800
+
+    Did History PAge
+
+commit cc093401b1273026eb7bfbbfadc876ffe4357ec8
+Merge: 5cdcd91 097623a
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Thu Feb 18 14:22:48 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit 5cdcd91e7ab4efa6bb697a88ffb83fdced385bfc
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Thu Feb 18 14:22:40 2016 -0800
+
+    changing
+
+commit 097623aa3d365537cff993043cef575eb5e3a737
+Merge: 62b641c 2c502ce
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Thu Feb 18 14:14:02 2016 -0800
+
+    Merge pull request #12 from jerrybeanman/Develop
+    
+    oppo loopo
+
+commit 2c502ce6893f3be9bab2711a27ce6b59844a7bdb
+Merge: 80b6328 62b641c
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Thu Feb 18 14:13:05 2016 -0800
+
+    fixed merge conflictsss
+
+commit 62b641cf0241c26b8868cf95ae57ab8b237d1455
+Merge: bd56311 1fe416c
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Thu Feb 18 14:08:26 2016 -0800
+
+    Merge pull request #11 from imoongom/Develop
+    
+    model work add
+
+commit 80b63289274b56e3841011ebf4444c3e93e4a99b
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Thu Feb 18 14:07:40 2016 -0800
+
+    poopy gui not so poopy
+
+commit 1fe416c563d47613d70656f2af627f8d79bd27c4
+Merge: da3a4ab bd56311
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Thu Feb 18 14:04:06 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit da3a4ab7eb573ebda5a7d08d1d64daf6d1416565
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Thu Feb 18 14:03:53 2016 -0800
+
+    add Mode
+
+commit 47967ab4505fb4273aa93cafab94867ca94562b1
+Merge: 96eab5a bd56311
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Thu Feb 18 13:56:14 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit 96eab5aa5e72d918217bd2fd876b8354be9d1e7f
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Thu Feb 18 13:55:36 2016 -0800
+
+    plz git gud
+
+commit bd563118a4f5b51da167c0bb21c0be15e9e973d6
+Merge: 5aa6c41 6af23cb
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Thu Feb 18 13:55:05 2016 -0800
+
+    Merge pull request #10 from MartinMinkov/Develop
+    
+    Fixed logout to present login menu again
+
+commit 6af23cbeaf0f789b7a617887074ac62815ffccaa
+Author: MartinMinkov <minkovlmartin@gmail.com>
+Date:   Thu Feb 18 13:46:57 2016 -0800
+
+    Fixed logout to present login menu again
+
+commit a7a1cfb44185a8ef1ff1fddc84d1681ead757d7d
+Merge: 7a2c194 5aa6c41
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Thu Feb 18 13:41:26 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit 5aa6c41617f8306469826e2e4914375c135e4768
+Merge: 6f382c0 128da70
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Thu Feb 18 13:41:14 2016 -0800
+
+    Merge pull request #9 from MartinMinkov/Develop
+    
+    Broke logout earlier, fixed it to display the profile page
+
+commit 7a2c19431aaba545555de9c5d242ee7b097f605f
+Merge: a6d8df1 6f382c0
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Thu Feb 18 13:40:34 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit a6d8df14ae518304fa04876a4048301b6a3ee4c9
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Thu Feb 18 13:40:18 2016 -0800
+
+    what am i doing
+
+commit 128da70cd2ebbb8fcc13a97adcd5a6000cdbb802
+Author: MartinMinkov <minkovlmartin@gmail.com>
+Date:   Thu Feb 18 13:24:28 2016 -0800
+
+    Broke logout earlier, fixed it to display the profile page
+
+commit ec4c4634c4d29a49423df29410510f071231cc9f
+Merge: 1847182 002013d
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Thu Feb 18 13:12:54 2016 -0800
+
+    fixed merging conflicts
+
+commit 6f382c04a4b2bda8c1ba9a6889ee2aac32f7201a
+Merge: 002013d 38a5dcf
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Thu Feb 18 13:11:31 2016 -0800
+
+    Merge pull request #8 from MartinMinkov/Develop
+    
+    Added MY_Model.php
+
+commit 38a5dcfadf5044e6c35af32fd247ad3569ebe1a0
+Author: MartinMinkov <minkovlmartin@gmail.com>
+Date:   Thu Feb 18 13:09:30 2016 -0800
+
+    Added MY_Model.php
+
+commit 1847182bfc5c3a9cc83ba4ba7b0bfe9901b4aa08
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Thu Feb 18 12:57:07 2016 -0800
+
+    added retarded gui
+
+commit 002013dea6b227afd490af3384f8c6021416fda3
+Merge: c31351d 5adcc3e
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Thu Feb 18 12:53:21 2016 -0800
+
+    Merge pull request #7 from MartinMinkov/Develop
+    
+    Logout and Login menu working
+
+commit 5adcc3ebc4a3442b12d53b64ddc26c7988ba486d
+Author: MartinMinkov <minkovlmartin@gmail.com>
+Date:   Thu Feb 18 12:52:37 2016 -0800
+
+    Fixed logout to present login menu
+
+commit d1bad8e0663eba4e2f3669300cb4d7d207de4a02
+Author: MartinMinkov <minkovlmartin@gmail.com>
+Date:   Thu Feb 18 12:45:26 2016 -0800
+
+    Set up login functionality in profile controller
+
+commit f9b10bc4c4818cbfe22751c237c531aa837e31ff
+Merge: a203573 c31351d
+Author: MartinMinkov <minkovlmartin@gmail.com>
+Date:   Wed Feb 17 21:22:24 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit c31351dbed583c46b3fe071f1bc0523bb477057b
+Merge: a32a28e 76ce01f
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Wed Feb 17 18:14:29 2016 -0800
+
+    Merge pull request #5 from jerrybeanman/Develop
+    
+    Created main page, merged and fixed conflicts
+
+commit 76ce01f1812d609ae1fc082d876e48f6dfa59252
+Merge: 2b16414 a32a28e
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Wed Feb 17 18:13:24 2016 -0800
+
+    merged and fixed conflicts
+
+commit 2b16414416b71692718d7b80d236d7d1f6383e21
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Wed Feb 17 18:10:01 2016 -0800
+
+    working on main page
+
+commit a32a28ea846fd36c6aa916d8c4905cc52fbddbb0
+Merge: 656684a 81b121c
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Wed Feb 17 18:08:50 2016 -0800
+
+    Merge pull request #4 from ColinBose/Develop
+    
+    Working on portfolio
+
+commit 81b121c74dd568fc202b59d6b6a081f83b49980b
+Merge: 69a9661 656684a
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Wed Feb 17 18:06:21 2016 -0800
+
+    Repull
+
+commit 69a966110b38ec22b6eec38d8cd6b6d06f6463a5
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Wed Feb 17 18:03:18 2016 -0800
+
+    Working on portfolio, merging with eunwon
+
+commit 90269beffd81f904f1caae6323eeb96c422d06e3
+Merge: 792095c 656684a
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Wed Feb 17 16:30:33 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit 792095ced6e038c16fdd10364c4d0793273f5517
+Author: jerry <jerry1bean@hotmail.com>
+Date:   Wed Feb 17 16:28:24 2016 -0800
+
+    I have no idea
+
+commit 656684a30a686b28ddc0e87712f63e1c85ab7cc5
+Merge: 2e9b608 8e6093a
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Wed Feb 17 16:27:19 2016 -0800
+
+    Merge pull request #3 from imoongom/Develop
+    
+    add form to link
+
+commit 8e6093a8c0d394c4a5bc0938e825f00eb435a433
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Wed Feb 17 16:22:25 2016 -0800
+
+    link site form
+
+commit a203573e5f5f128e9b75141bc776430b40506914
+Author: MartinMinkov <minkovlmartin@gmail.com>
+Date:   Wed Feb 17 15:49:18 2016 -0800
+
+    Set up database
+
+commit 46d6cdf8accc2e8817cab0ab3287cd672e81878d
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Wed Feb 17 15:31:19 2016 -0800
+
+    add data
+
+commit 69efd088d82ad7746ce44e0bd6b8639e07c6e075
+Merge: c72a166 2e9b608
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Wed Feb 17 15:20:05 2016 -0800
+
+    Merge branch 'Develop' of https://github.com/ChingChongBeanMan/StockTickerAgent into Develop
+
+commit c72a16698d511a2fdd8fe239077be7c69e11f10d
+Author: imoongom <moongom.ca@gmail.com>
+Date:   Wed Feb 17 15:19:54 2016 -0800
+
+    ??
+
+commit 2e9b60849c4bf0cdb03e041a0e6cfbdbf881d7af
+Merge: 0d6610d 62b5d43
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Wed Feb 17 14:49:46 2016 -0800
+
+    Merge pull request #2 from ColinBose/Develop
+    
+    changed main
+
+commit 0d6610dd6d0932ae1f6a9e0c2eafb9d94c377500
+Merge: 6f3715f 252b869
+Author: Jerry Jia <jiajerry2516@gmail.com>
+Date:   Wed Feb 17 14:39:27 2016 -0800
+
+    Merge pull request #1 from ColinBose/Develop
+    
+    Eunwon will do the rest of the assignment
+
+commit 62b5d4349cc32ae419f73baa63bbbd2a241a2fe8
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Wed Feb 17 13:35:19 2016 -0800
+
+    pushing some table stuff
+
+commit 252b869ba15bc94503d01346d05e50fc799cc590
+Author: Colin Bose <colin.bose2@gmail.com>
+Date:   Thu Feb 11 15:09:57 2016 -0800
+
+    Eunwon will do the rest of the assignment
+
+commit 6f3715f5cc5c5c74e81c610eb3ee57115464fa1b
+Author: jerrybeanman <jerry1bean@hotmail.com>
+Date:   Tue Feb 9 15:59:47 2016 -0800
+
+    Initial commit
