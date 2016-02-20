@@ -11,10 +11,7 @@
 	  crossorigin="anonymous">
     </head>
     <body style="background-color: black;">
-
-        <div class="container">
 			{menubar}
-        <div/>
         <div class="container">               
 			{content}
 		

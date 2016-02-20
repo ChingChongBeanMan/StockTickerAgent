@@ -1,31 +1,46 @@
 <script type="text/javascript" src="/scripts/dropdown.js" ></script>
-<h1 style="margin:auto; text-align:center;">{intro}</h1>
+<font color="1394BF"><h1 style="margin:auto; text-align:center;">Current Stock: {intro}</h1></font>
 </br>
-<select id="historydropdown">
+
+<select class="styled-select" id="historydropdown">
     <option>Select A Stock</option>
     {dropdown}
 </select>
 </br>
-<table class="table">
-    <tr><th colspan="4" style="text-align:center;"><h3>Recent Transactions</h3><th></tr>
-    <tr>
-        <th>Time</th>
-        <th>Player</th>
-        <th>Transaction</th>
-        <th>Quantity</th>
-    </tr>
-   {stock_transactions}
-</table>
-<br/>
 
-
-<table class="table">
-    <tr><th colspan="3" style="text-align:center;"><h3>Recent Movement<h3><th></tr>
-    <tr>
-        <th>Time</th>
-        <th>Action</th>
-        <th>Amount</th>
-    </tr>
-   {movement_history}
-</table>
-<br/>
+<div id="content">
+	<div class="jumbotron text-center col-md-12 bb">
+		<div class ="col-xl-12 col-md-12">
+			<font color="white"><h2 class="sub-header text-center">Recent Transactions</h2></font>
+			<div class="CSSTableGenerator">
+				<table>
+					<tr>
+						<td>Time</td>
+						<td>Player</td>
+						<td>Transaction</td>
+						<td>Quantity</td>
+					</tr>
+					<tr>
+						{stock_transactions}
+					</tr>
+				</table>
+			</div>		
+		</div>
+		</br>
+		<div class ="col-xl-12 col-md-12">
+			<font color="white"><h2 class="sub-header text-center">Recent Movement</h2></font>
+			<div class="CSSTableGenerator">
+				<table>
+					<tr>
+						<td>Time</td>
+						<td>Action</td>
+						<td>Amount</td>
+					</tr>
+					<tr>
+						{movement_history}
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
