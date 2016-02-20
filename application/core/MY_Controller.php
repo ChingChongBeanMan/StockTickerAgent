@@ -26,10 +26,12 @@ class MY_Controller extends CI_Controller {
     {
         //Login
         if($this->session->userdata('username')) {
-            $this->data['login-menu'] = '<a class="btn btn-primary btn- lg" href="/Portfolio/logout">LOGOUT</a>';      
+            $this->data['login-menu'] = '<button type="button" class="btn btn-primary btn-lg outline">
+				<a href="/Portfolio"><font color="white">LOGIN</font></a></button>';      
         }
         else {
-            $this->data['login-menu'] = '<a class="btn btn-primary btn- lg" href="/Portfolio/">LOGIN</a>';
+            $this->data['login-menu'] = '<button type="button" class="btn btn-primary btn-lg outline">
+				<a href="/Portfolio"><font color="white">LOGOUT</font></a></button>';
         } 
 
         //$this->data['login-menu'] = $this->parser->parse('login_menu', $this->data, true);
