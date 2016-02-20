@@ -15,8 +15,7 @@ class History extends My_Controller{
         $output = '';
         foreach($result as $row){
             $this1 = array(
-               'stockname' => $row->Code,
-                
+               'stockname' => $row->Code,   
             );
             $lists[] = $this1; 
         }

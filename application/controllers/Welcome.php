@@ -66,7 +66,7 @@ class Welcome extends MY_Controller {
             $stock = $this->Stocks->all();
             $equity = array();
             
-            $stockvalues = $this->Player->getstockvalue($stock);
+            $stockvalues = $this->getstockvalue($stock);
       
             foreach($players as $player){
                
@@ -84,6 +84,15 @@ class Welcome extends MY_Controller {
             }
            
             return $equity;
+        }
+        
+            //get all stock value combining with player table.
+        function getstockvalue($result){
+            $values = array();     
+            foreach($result as $stock){
+                $values[$stock->Code] = $stock->Value;
+            }
+            return $values;
         }
     
 }

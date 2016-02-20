@@ -12,10 +12,10 @@ class ProfileList extends MY_Model2 {
         parent::__construct('transactions','Player','DateTime');
     }
     
+    //get hold data from Transaction table and update
     function getheldstocks($result){
          $totals = array();
         foreach($result as $list){
-            //$totals[$list->Stock]->Name = $list->Stock;
             if($list->Trans == "buy"){
                 if (array_key_exists($list->Stock, $totals)) {
                     $totals[$list->Stock]->Quantity += $list->Quantity;
