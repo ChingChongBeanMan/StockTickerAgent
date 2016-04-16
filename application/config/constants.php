@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+define('BSXPATH', 'http://bsx.jlparry.com/');
+define('XMLSUFFIX', '.xml');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace
