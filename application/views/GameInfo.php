@@ -1,0 +1,30 @@
+<div>
+    <div>
+        <table class="CSSTableGenerator text-center col-md-12 bb">
+            {temptitle}
+            <tr>
+                <th>Round</th>
+                <th>State</th>
+                <th>Desc</th>
+                <th>Duration</th>
+                <th>Upcomming</th>
+                <th>Alarm</th>
+                <th>Now</th>
+                <th>Countdown</th>
+            </tr>
+            {information}
+            <tr>
+                <td>{round}</td>
+                <td>{state}</td>
+                <td>{desc}</td>
+                <td>{duration}</td>
+                <td>{upcoming}</td>
+                <td>{alarm}</td>
+                <td>{now}</td>
+                <td>{countdown}</td>
+            </tr>
+            {/information}
+        </table>
+    </div>
+    
+</div>

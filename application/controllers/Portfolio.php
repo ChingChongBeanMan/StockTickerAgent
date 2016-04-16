@@ -11,7 +11,7 @@ class Portfolio extends My_Controller{
      function __construct()
 	{
 		parent::__construct();
-        $this->load->library('session');
+                $this->load->library('session');
 		$this->data = array();
 		$this->data['pagetitle'] = 'Portfolio';
 		
