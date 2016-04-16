@@ -28,7 +28,51 @@ class Portfolio extends My_Controller{
         }
     }
     //Creates a session variable based on a user name
+    public function showLogin(){
+        $this->data['pagetitle'] = "Login";
+        $this->data['page'] = 'login';
+        $this->data['pagecontent'] = 'login';
+        $this->data['pagebody'] = 'login';
+        
+        $this->render();
+    }
     public function login() {
+        
+              
+        if(!$this->input->post('field-username')) {
+                       
+            $this->showLogin();
+        }
+        
+        $this->load->model("Users");
+        $use = $this->input->post('field-username');
+        $pass = $this->input->post('field-password');
+        $allUsers = $this->Users->getUser();
+        $exist = false;
+        foreach($allUsers->result() as $user){
+            if($user->username == $use){
+                
+                if(password_verify($pass,$user->password)){
+                    
+                    $nData = array('username' => $this->input->post('field-username'));
+                    $this->session->set_userdata($nData);
+                    $this->data['login-menu'] = $this->parser->parse("logout_menu", $this->data, true);
+                    $this->index();
+                    return;
+                }
+                else{
+                    
+                    $this->showLogin();
+                    return;
+                }
+                
+            }
+            
+                
+        }/*
+        
+        
+        
         if($this->input->post('field-username')) {
                 $nData = array('username' => $this->input->post('field-username'));
                 $this->session->set_userdata($nData);
@@ -40,7 +84,7 @@ class Portfolio extends My_Controller{
                 $this->data['pagecontent'] = 'login';
                 $this->data['pagebody'] = 'login';
                 $this->render();
-              }
+              }*/
         }
     //Destroys user session
     public function logout() {
