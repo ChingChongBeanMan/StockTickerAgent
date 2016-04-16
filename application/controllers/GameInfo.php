@@ -31,11 +31,13 @@ class GameInfo extends MY_Controller {
             $this->load->model('GameInfos');
             $this->data['pagebody'] = 'GameInfo';
             $this->data['temptitle'] = 'Check Status';
+            $this->data['temptitle'] = 'Data Check';
             $infosave = $this->GameInfos->getInfo();
-            $testparse = $this->parser->parse('GameInfo',$infosave, true);
-            $this->data['information'] = $testparse;
             $this->data['information'] = $infosave;
-             $this->render();
+            
+            $stockTest = $this->GameInfos->getGameStock();
+            $this->data['stockInfo'] = $stockTest;
+            $this->render();
         }
     
 }

@@ -9,31 +9,54 @@
 
 class GameInfos extends MY_Model{
     protected $xml = null;
-    protected $Info = array();
+    protected $Info;// = array();
     protected $game = array();
 
     public function __construct(){
-         $this->xml = simplexml_load_file(BSXPATH.'status');
-         
-        $game['round']    = (int)$bsx->round;
-        $game['state']    = (int)$bsx->state;
-        $game['current']  = (string)$bsx->current;
-        $game['desc']     = (string)$bsx->desc;
-        $game['duration'] = (int)$bsx->duration;
-        $game['upcomming']=(string)$bsx->upcomming;
-        $game['alarm']    = (string)$bsx->alarm;
-        $game['now']      = (string)$bsx->now;  
-        $game['countdown']= (int)$bsx->countdown;  
-        foreach($this->xml->bsx as $bsx){
 
-            $this->Info[];
-            echo "HELLP". $bsx;
-        }
+  
     }
     public function getInfo(){
-        return $game;
+         $this->xml = simplexml_load_file(BSXPATH.'status');//, "SimpleXMLElement", LIBXML_NOENT);
+
+           $bsx = $this->xml;
+
+
+        $this->game['round']    = (int)$this->xml->round;
+        $this->game['state']    = (int)$this->xml->state;
+        $this->game['current']  = (string)$this->xml->current;
+        $this->game['desc']     = (string)$this->xml->desc;
+        $this->game['duration'] = (int)$this->xml->duration;
+        $this->game['upcoming']=(string)$this->xml->upcoming;
+        $this->game['alarm']    = (string)$this->xml->alarm;
+        $this->game['now']      = (string)$this->xml->now;  
+        $this->game['countdown']= (int)$this->xml->countdown;  
+       
+        return array($this->game);
+    }
+    public function getGameStock(){
+        $stocks = array();
+        $url = BSXPATH."data/stocks";
+        $rows = array();
+        if(($file = @fopen($url, 'r')))
+        {
+            while($line = fgetcsv($file)){
+                $row = count($line);
+                $rows['code'] = (string)$line[0];
+                $rows['name'] = (string)$line[1];
+                $rows['category'] = (string)$line[2];
+                $rows['value'] = (string)$line[3];
+                $stocks[] = array($rows);
+            }
+                
+            
+            fclose($file);
+        }
+        
+        return array($rows);
     }
 }
+
 
 class bsxForm extends CI_Model{
     

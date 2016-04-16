@@ -1,6 +1,6 @@
 <div>
-    <div>
-        <table class="CSSTableGenerator text-center col-md-12 bb">
+    <div class="text-center col-md-12">
+        <table class="table table-hover">
             {temptitle}
             <tr>
                 <th>Round</th>
@@ -24,6 +24,26 @@
                 <td>{countdown}</td>
             </tr>
             {/information}
+        </table>
+    </div>
+    
+    <div class="text-center col-md-12 ">
+    <table class="table table-striped">
+            {temp2title}
+            <tr>
+                <th>code</th>
+                <th>name</th>
+                <th>category</th>
+                <th>value</th>
+            </tr>
+            {stockInfo}
+            <tr>
+                <td>{code}</td>
+                <td>{name}</td>
+                <td>{category}</td>
+                <td>{value}</td>
+            </tr>
+            {/stockInfo}
         </table>
     </div>
     
