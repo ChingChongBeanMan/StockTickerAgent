@@ -15,8 +15,7 @@
     <body style="background-color: black;">
 			{menubar}
         <div class="container">               
-			{content}
-		
+			{content}		
         </div>
         <div id="footer" class="span12" style ="color : #FFFFFF; text-align: center;">
             Copyright &copy; 2015-2016,  <a href="mailto:someone@somewhere.com">Me</a>.
