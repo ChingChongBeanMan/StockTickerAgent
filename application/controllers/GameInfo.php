@@ -34,10 +34,33 @@ class GameInfo extends MY_Controller {
             $this->data['temptitle'] = 'Data Check';
             $infosave = $this->GameInfos->getInfo();
             $this->data['information'] = $infosave;
-            
-            $stockTest = $this->GameInfos->getGameStock();
+            $url = BSXPATH."data/stocks";
+
+            $stockTest = $this->GameInfos->ImportCSV2Array($url);
             $this->data['stockInfo'] = $stockTest;
             $this->render();
         }
-    
+    public function buyStocks($stockName){
+        //echo $stockName;
+        $url = DATAPATH . '/buy';
+        $data = array('team' => 'o11',
+                                'token' => 'b218abc762c363ab7a665162c9c391e1',
+                                'player' => 'Donald',
+                                'stock' => $stockName,
+                                'quantity' => '1' );
+
+        // use key 'http' even if you send the request to https://...
+        $options = array(
+            'http' => array(
+                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method'  => 'POST',
+                'content' => http_build_query($data)
+            )
+        );
+        $context  = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+        if ($result === FALSE) { /* Handle error */ }
+
+        var_dump($result);
+    }
 }
