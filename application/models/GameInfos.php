@@ -60,7 +60,6 @@ class GameInfos extends MY_Model{
                 if($line[1] == "name"){
                     continue;
                 }
-                    
                 $rows['code'] = (string)$line[0];
                 $rows['name'] = (string)$line[1];
                 $rows['category'] = (string)$line[2];
@@ -74,9 +73,40 @@ class GameInfos extends MY_Model{
         
         return $stocks;
     }
+
+public function ImportCSV2Array($filename)
+{
+    $row = 0;
+    $col = 0;
+ 
+    $handle = @fopen($filename, "r");
+    if ($handle) 
+    {
+        while (($row = fgetcsv($handle, 4096)) !== false) 
+        {
+            if (empty($fields)) 
+            {
+                $fields = $row;
+                continue;
+            }
+ 
+            foreach ($row as $k=>$value) 
+            {
+                $results[$col][$fields[$k]] = $value;
+            }
+            $col++;
+            unset($row);
+        }
+        if (!feof($handle)) 
+        {
+            echo "Error: unexpected fgets() failn";
+        }
+        fclose($handle);
+    }
+ 
+    return $results;
 }
-
-
+}
 class bsxForm extends CI_Model{
     
     protected $round = null;
