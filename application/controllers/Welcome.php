@@ -29,6 +29,7 @@ class Welcome extends MY_Controller {
 	public function index()
 	{
            //Load library and models
+            $this->load->library('session');
             $this->load->database();
             $this->load->library('table');
             $this->load->library('parser');
@@ -39,6 +40,9 @@ class Welcome extends MY_Controller {
             $equityarray =  $this->getEquity();
             $result = '';
             //parse through all stocks and put in table
+            $str = $this->session->userdata('username');
+            
+            echo "<h1>$str<h1>";
             foreach($qArr as $row){
                             
                 $result .= $this->parser->parse('maintable', $row, true);             
