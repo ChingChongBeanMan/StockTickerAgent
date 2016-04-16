@@ -11,12 +11,14 @@ class GameInfos extends MY_Model{
     protected $xml = null;
     protected $Info;// = array();
     protected $game = array();
-
+    
     public function __construct(){
 
   
     }
     public function getInfo(){
+        
+        
          $this->xml = simplexml_load_file(BSXPATH.'status');//, "SimpleXMLElement", LIBXML_NOENT);
 
            $bsx = $this->xml;
@@ -32,7 +34,20 @@ class GameInfos extends MY_Model{
         $this->game['now']      = (string)$this->xml->now;  
         $this->game['countdown']= (int)$this->xml->countdown;  
        
+         return array($this->game);
+        /*   
+         if($this->xml){       
+        }
+        else{
+            echo "ERROROROROROR!!!!!! NO FILE";
+        
+        $this->game = array("round"=>"0","state"=>"3","current"=>"-",
+                            "desc" => "-", "duration"=>"-", "upcoming"=>"-",
+                            "alarm"=>"-", "now"=>"-", "countdown"=>"-");
         return array($this->game);
+        }
+         * s
+         */
     }
     public function getGameStock(){
         $stocks = array();
@@ -40,20 +55,24 @@ class GameInfos extends MY_Model{
         $rows = array();
         if(($file = @fopen($url, 'r')))
         {
+            $temp = 0;
             while($line = fgetcsv($file)){
-                $row = count($line);
+                if($line[1] == "name"){
+                    continue;
+                }
+                    
                 $rows['code'] = (string)$line[0];
                 $rows['name'] = (string)$line[1];
                 $rows['category'] = (string)$line[2];
                 $rows['value'] = (string)$line[3];
-                $stocks[] = array($rows);
+                $stocks[] = $rows;
             }
                 
             
             fclose($file);
         }
         
-        return array($rows);
+        return $stocks;
     }
 }
 
