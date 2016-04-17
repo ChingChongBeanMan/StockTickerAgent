@@ -29,15 +29,18 @@ class GameInfo extends MY_Controller {
            //Load library and models
             $this->load->database();
             $this->load->model('GameInfos');
+            $this->load->model('Stock');
             $this->data['pagebody'] = 'GameInfo';
             $this->data['temptitle'] = 'Check Status';
             $this->data['temptitle'] = 'Data Check';
             $infosave = $this->GameInfos->getInfo();
             $this->data['information'] = $infosave;
             $url = BSXPATH."data/stocks";
-
+            
             $stockTest = $this->GameInfos->ImportCSV2Array($url);
             $this->data['stockInfo'] = $stockTest;
+            
+            
             $this->render();
         }
     public function buyStocks($stockName){
