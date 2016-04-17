@@ -31,7 +31,7 @@ class Portfolio extends My_Controller{
     public function showLogin(){
         $this->data['pagetitle'] = "Login";
         $this->data['page'] = 'login';
-        $this->data['pagecontent'] = 'login';
+    //    $this->data['pagecontent'] = 'login';
         $this->data['pagebody'] = 'login';
         
         $this->render();
@@ -72,7 +72,7 @@ class Portfolio extends My_Controller{
             
                 
         }
-        $this->showLogin();
+       // $this->showLogin();
         
         /*
         
