@@ -28,6 +28,28 @@ class StockManager extends MY_Controller {
 		parent::__construct();
                 $this->data['pagetitle'] = 'Buy and Sell Stocks';
 	}
+        function index(){
+            $this->data['pagebody'] = 'BuySell';
+            $this->getStocks();
+            $this->render();
+        }
+        function getStocks(){
+            $this->load->model('Stock');
+            $url = BSXPATH."data/stocks";
+            $this->load->model('GameInfos');
+            $stockAll = $this->GameInfos->ImportCSV2Array($url);
+            $this->Stock->redoStocks($stockAll);
+            $stockList = $this->Stock->all();
+            
+            foreach($stockList as $stock){
+                $arr = array('code' => $stock->Code,
+                             'name' => $stock->Name,
+                             'value' => $stock->Value);
+                
+                $stockArr[] = $arr;
+            }
+            $this->data['listStock'] = $stockArr;
+        }
     public function getKey(){
             $url = BSXPATH . 'register';
             $data = array('team' => 'o11',
@@ -40,7 +62,7 @@ class StockManager extends MY_Controller {
                 'content' => http_build_query($data)
             )
         );
-        $context  = stream_context_create($send, $quantity);
+        $context  = stream_context_create($send);
         $result = file_get_contents($url, false, $context);
         if ($result === FALSE) { 
             return NULL;
@@ -50,18 +72,28 @@ class StockManager extends MY_Controller {
         return $result;  
     }
         
-        public function buyStocks($stockName){
+        public function buyStocks($stockName, $quantity, $user){
         //echo $stockName;
-        $url = DATAPATH . '/buy';
+        
+        $url = BSXPATH . '/buy';
         $key = $this->getKey();
+        $xml = simplexml_load_string($key);
+        $total = count((array)$xml);
+        if($total == 1){
+            $this->index();
+            return;
+        }
+        echo $xml['token'];
+        $realKey = (string)$xml->token;
+        echo $realKey;
         $data = array('team' => 'o11',
-                      'token' => $key ,
-                      'player' => 'Colin',
+                      'token' => $realKey,
+                      'player' => $user,
                       'stock' => $stockName,
                       'quantity' => $quantity
                 );
 
-     
+        var_dump($data);
         $send = array(
             'http' => array(
             'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -69,24 +101,62 @@ class StockManager extends MY_Controller {
             'content' => http_build_query($data)
             )
         );
+        var_dump($send);
         $context  = stream_context_create($send);
         $result = file_get_contents($url, false, $context);
         if ($result === FALSE) {
             
             
         }
-
+        $stockcert = simplexml_load_string($result);
+        $c = count((array)$stockcert);
+        if($c == 1){
+            $this->data['message'] = "Stock not purchased";
+            $this->index();
+        }
+        else{
+            $token = (string)$stockcert->token;
+            $this->load->model('HeldStock');
+            $this->HeldStock->addPurchase($stockName, $user, $quantity, $token);
+            $this->data['message'] = "Stock Purchased!";
+            $this->index();
+        }
         var_dump($result);
     }
-        public function sellStocks($stockName, $quantity){
+        public function sellStocks($stockName, $quantity, $player){
         //echo $stockName;
-        $url = DATAPATH . '/sell';
+        $url = BSXPATH . '/sell';
         $key = $this->getKey();
+        $xml = simplexml_load_string($key);
+        $total = count((array)$xml);
+        if($total == 1){
+            $this->index();
+            return;
+        }
+        $realKey = (string)$xml->token;
+        $this->load->model('HeldStock');
+        $stocks = $this->HeldStock->all();
+        $sell = false;
+        $sellcode;
+        foreach($stocks as $s){
+            if($s->Player == $player && $s->Code == $stockName && $s->Amount == $quantity){
+                $sell = true;
+                $sellcode = $s->RetCode;
+                break;
+            }
+        }
+        if(!$sell){
+           $this->data['message'] = "You dont own this stock";
+           $this->index();
+           return;
+        }
+        
         $data = array('team' => 'o11',
-                      'token' => $key ,
-                      'player' => 'Colin',
+                      'token' => $realKey ,
+                      'player' => $player,
                       'stock' => $stockName,
-                      'quantity' =>  $quantity );
+                      'quantity' =>  $quantity,
+                      'certificate' => $sellcode);
 
      
         $send = array(
@@ -96,6 +166,7 @@ class StockManager extends MY_Controller {
             'content' => http_build_query($data)
             )
         );
+        var_dump($send);
         $context  = stream_context_create($send);
         $result = file_get_contents($url, false, $context);
         if ($result === FALSE) {
@@ -104,6 +175,7 @@ class StockManager extends MY_Controller {
         }
 
         var_dump($result);
+        
     }   
         
         

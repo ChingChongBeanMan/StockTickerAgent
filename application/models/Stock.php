@@ -38,7 +38,7 @@ class Stock extends MY_Model {
          
          foreach($stockList as $stock){
            
-             
+            
             $data = array(
             'Datetime'      => date('r', $stock['datetime']) ,
             'Code'      => $stock['code'] ,
