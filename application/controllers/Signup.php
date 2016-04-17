@@ -27,6 +27,7 @@ class Signup extends My_Controller{
     
    public function register(){
        $this->load->model('Users');
+       $this->load->model('Player');
        $curUsers = $this->Users->getUser();
        $dup = false;
        $use = $_POST['username'];
@@ -44,6 +45,9 @@ class Signup extends My_Controller{
             return;
        }
        echo "Adding user";
-        $this->Users->addUser($use,password_hash($pass,PASSWORD_DEFAULT), "player");
+       $cash = 1000;
+       $this->Users->addUser($use,password_hash($pass,PASSWORD_DEFAULT), "player");
+       $this->Player->AddUser($use, $cash);
+       $this->index();
    }
 }

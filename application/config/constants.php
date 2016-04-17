@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 define('BSXPATH', 'http://www.comp4711bsx.local/');
 define('XMLSUFFIX', '.xml');
+define('ROLE_ADMIN', 'admin');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace
