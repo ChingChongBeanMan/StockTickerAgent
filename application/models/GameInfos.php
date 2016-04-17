@@ -61,7 +61,7 @@ public function ImportCSV2Array($filename)
 {
     $row = 0;
     $col = 0;
- 
+    $thisisretarded = false;
     $handle = @fopen($filename, "r");
     if ($handle) 
     {
@@ -76,6 +76,7 @@ public function ImportCSV2Array($filename)
             foreach ($row as $k=>$value) 
             {
                 $results[$col][$fields[$k]] = $value;
+                $thisisretarded = true;
             }
             $col++;
             unset($row);
@@ -86,8 +87,13 @@ public function ImportCSV2Array($filename)
         }
         fclose($handle);
     }
- 
-    return $results;
+   if($thisisretarded){
+        return $results;
+   }
+   else{
+       return NULL;
+   }
+   
 }
 }
 class bsxForm extends CI_Model{
