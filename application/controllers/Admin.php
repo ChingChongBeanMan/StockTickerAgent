@@ -22,10 +22,12 @@ class Admin extends MY_Controller {
 	{
 		parent::__construct();
                 $this->data['pagetitle'] = 'Player Management';
+                //$this->restrict(ROLE_ADMIN);
                 
         }
         function index(){
             $this->data['pagebody'] = 'PlayerManagement';
+            
             $this->getUsers();
             $this->render();
         }
@@ -55,6 +57,8 @@ class Admin extends MY_Controller {
   function delete($user){
       $this->db->where('username', $user);
       $this->db->delete('users');
+       $this->db->where('Player', $user);
+      $this->db->delete('players');
       $this->index();
   }
 }
