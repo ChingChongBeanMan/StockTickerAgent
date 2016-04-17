@@ -31,7 +31,7 @@ class Portfolio extends My_Controller{
     public function showLogin(){
         $this->data['pagetitle'] = "Login";
         $this->data['page'] = 'login';
-        $this->data['pagecontent'] = 'login';
+    //    $this->data['pagecontent'] = 'login';
         $this->data['pagebody'] = 'login';
         
         $this->render();
@@ -59,7 +59,7 @@ class Portfolio extends My_Controller{
                     $this->session->set_userdata('userName',$user->username);
                     $this->session->set_userdata('userRole',$user->role);
                     $this->data['login-menu'] = $this->parser->parse("logout_menu", $this->data, true);
-                    $this->showLogin();
+                    header("dashboard.php");
                     return;
                 }
                 else{
@@ -72,7 +72,7 @@ class Portfolio extends My_Controller{
             
                 
         }
-        $this->showLogin();
+       // $this->showLogin();
         
         /*
         
@@ -144,8 +144,11 @@ class Portfolio extends My_Controller{
         $this->data['ProfileSummary'] = $recent;
         $this->data['HoldingSummary'] = $holdings;
         $this->data['PlayerName'] = $name;
-        $this->generateDropdown();
+        //##################################
+        //move to ####/dashboard
+        //#################################
         $this->render();
+        
         
     }
     //Gets the recent transactions of the user

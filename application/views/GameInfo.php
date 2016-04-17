@@ -1,6 +1,6 @@
 <div>
     <div class="text-center col-md-12">
-        <table class="table table-hover">
+        <table class="CSSTableGenerator table table-hover">
             {temptitle}
             <tr>
                 <th>Round</th>
@@ -29,7 +29,7 @@
     
     
     <div class="text-center col-md-12 ">
-    <table class="table table-hover">
+    <table class="CSSTableGenerator table table-hover">
             {temp2title}
             <tr>
                 <th>code</th>
