@@ -10,20 +10,20 @@
 class GameInfos extends MY_Model{
     protected $xml = null;
     protected $Info;// = array();
-    protected $game;
+    protected $game = array();
     
     public function __construct(){
 
   
     }
     public function getInfo(){
-        $this->game = array();
+        
         
          $this->xml = simplexml_load_file(BSXPATH.'status');//, "SimpleXMLElement", LIBXML_NOENT);
 
            $bsx = $this->xml;
 
-        echo "dsdsdsds ".$bsx->round;
+
         $this->game['round']    = (int)$this->xml->round;
         $this->game['state']    = (int)$this->xml->state;
         $this->game['current']  = (string)$this->xml->current;
@@ -57,6 +57,7 @@ class GameInfos extends MY_Model{
         {
             $temp = 0;
             while($line = fgetcsv($file)){
+
                 if($line[1] == "name"){
                     continue;
                 }
@@ -74,38 +75,38 @@ class GameInfos extends MY_Model{
         return $stocks;
     }
 
-    public function ImportCSV2Array($filename)
+public function ImportCSV2Array($filename)
+{
+    $row = 0;
+    $col = 0;
+ 
+    $handle = @fopen($filename, "r");
+    if ($handle) 
     {
-        $row = 0;
-        $col = 0;
-
-        $handle = @fopen($filename, "r");
-        if ($handle) 
+        while (($row = fgetcsv($handle, 4096)) !== false) 
         {
-            while (($row = fgetcsv($handle, 4096)) !== false) 
+            if (empty($fields)) 
             {
-                if (empty($fields)) 
-                {
-                    $fields = $row;
-                    continue;
-                }
-
-                foreach ($row as $k=>$value) 
-                {
-                    $results[$col][$fields[$k]] = $value;
-                }
-                $col++;
-                unset($row);
+                $fields = $row;
+                continue;
             }
-            if (!feof($handle)) 
+ 
+            foreach ($row as $k=>$value) 
             {
-                echo "Error: unexpected fgets() failn";
+                $results[$col][$fields[$k]] = $value;
             }
-            fclose($handle);
+            $col++;
+            unset($row);
         }
-
-        return $results;
+        if (!feof($handle)) 
+        {
+            echo "Error: unexpected fgets() failn";
+        }
+        fclose($handle);
     }
+ 
+    return $results;
+}
 }
 class bsxForm extends CI_Model{
     
