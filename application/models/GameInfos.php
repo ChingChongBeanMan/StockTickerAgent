@@ -10,20 +10,20 @@
 class GameInfos extends MY_Model{
     protected $xml = null;
     protected $Info;// = array();
-    protected $game = array();
+    protected $game;
     
     public function __construct(){
 
   
     }
     public function getInfo(){
-        
+        $this->game = array();
         
          $this->xml = simplexml_load_file(BSXPATH.'status');//, "SimpleXMLElement", LIBXML_NOENT);
 
            $bsx = $this->xml;
 
-
+        echo "dsdsdsds ".$bsx->round;
         $this->game['round']    = (int)$this->xml->round;
         $this->game['state']    = (int)$this->xml->state;
         $this->game['current']  = (string)$this->xml->current;
@@ -74,38 +74,38 @@ class GameInfos extends MY_Model{
         return $stocks;
     }
 
-public function ImportCSV2Array($filename)
-{
-    $row = 0;
-    $col = 0;
- 
-    $handle = @fopen($filename, "r");
-    if ($handle) 
+    public function ImportCSV2Array($filename)
     {
-        while (($row = fgetcsv($handle, 4096)) !== false) 
+        $row = 0;
+        $col = 0;
+
+        $handle = @fopen($filename, "r");
+        if ($handle) 
         {
-            if (empty($fields)) 
+            while (($row = fgetcsv($handle, 4096)) !== false) 
             {
-                $fields = $row;
-                continue;
+                if (empty($fields)) 
+                {
+                    $fields = $row;
+                    continue;
+                }
+
+                foreach ($row as $k=>$value) 
+                {
+                    $results[$col][$fields[$k]] = $value;
+                }
+                $col++;
+                unset($row);
             }
- 
-            foreach ($row as $k=>$value) 
+            if (!feof($handle)) 
             {
-                $results[$col][$fields[$k]] = $value;
+                echo "Error: unexpected fgets() failn";
             }
-            $col++;
-            unset($row);
+            fclose($handle);
         }
-        if (!feof($handle)) 
-        {
-            echo "Error: unexpected fgets() failn";
-        }
-        fclose($handle);
+
+        return $results;
     }
- 
-    return $results;
-}
 }
 class bsxForm extends CI_Model{
     
