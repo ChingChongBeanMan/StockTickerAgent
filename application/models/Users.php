@@ -28,4 +28,5 @@ class Users extends MY_Model {
         $qet = $this->db->get();
         return $qet;
     }
+   
 }

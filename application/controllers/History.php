@@ -45,8 +45,11 @@ class History extends My_Controller{
         $this->db->select('*');
         $this->db->from('movements');
         $this->db->join('stocks', 'movements.code = stocks.code' );
+        $this->db->where('stocks.code =', $stock);
+        $this->db->order_by('Datetime', 'desc');
         $query = $this->db->get();
-         //var_dump($query->result());
+        $r = $query->row();
+        var_dump($r);
         //Query to get a users stock history
         $result = $this->StockList->some('Stock',$stock);
         $parse = '';

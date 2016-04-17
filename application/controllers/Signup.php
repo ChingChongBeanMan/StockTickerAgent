@@ -44,6 +44,6 @@ class Signup extends My_Controller{
             return;
        }
        echo "Adding user";
-        $this->Users->addUser($use,password_hash($pass,PASSWORD_DEFAULT), "guest");
+        $this->Users->addUser($use,password_hash($pass,PASSWORD_DEFAULT), "player");
    }
 }
