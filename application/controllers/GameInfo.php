@@ -32,7 +32,8 @@ class GameInfo extends MY_Controller {
             $this->load->model('Stock');
             $this->data['pagebody'] = 'GameInfo';
             $this->data['temptitle'] = 'Check Status';
-            $this->data['temptitles'] = 'Data Check';
+            $this->data['temptitle2'] = 'Data Check';
+            if($this->GameInfos->xmlConnect){
             $infosave = $this->GameInfos->getInfo();
             $this->data['information'] = $infosave;
             $url = BSXPATH."data/stocks";
@@ -40,7 +41,7 @@ class GameInfo extends MY_Controller {
             $stockTest = $this->GameInfos->ImportCSV2Array($url);
             $this->data['stockInfo'] = $stockTest;
             
-            
+            }
             $this->render();
         }
     

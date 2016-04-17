@@ -22,7 +22,7 @@ class Admin extends MY_Controller {
 	{
 		parent::__construct();
                 $this->data['pagetitle'] = 'Player Management';
-                //$this->restrict(ROLE_ADMIN);
+                $this->restrict(ROLE_ADMIN);
                 
         }
         function index(){
@@ -31,17 +31,17 @@ class Admin extends MY_Controller {
             $this->getUsers();
             $this->render();
         }
-        function getUsers(){
-            $userArr;
-            $this->load->model("Users");
-            $users = $this->Users->getUser();
-           // var_dump($users);
-            foreach($users->result() as $use){
-                $arr = array('username' => $use->username);
-                $userArr[] = $arr;
-            }
-            $this->data['listPlayer'] = $userArr;
+    function getUsers(){
+        $userArr;
+        $this->load->model("Users");
+        $users = $this->Users->getUser();
+       // var_dump($users);
+        foreach($users->result() as $use){
+            $arr = array('username' => $use->username);
+            $userArr[] = $arr;
         }
+        $this->data['listPlayer'] = $userArr;
+    }
     function edit($user){
         $this->data['pagebody'] = 'EditPlayer';
         $this->data['username'] = $user;

@@ -14,6 +14,9 @@ class Stock extends MY_Model {
     }
 
     public function redoStocks($stockList){
+        if(is_null($stockList)){
+            return NULL;
+        }
          $this->load->database();
          $this->db->truncate('stocks');
 
@@ -31,14 +34,14 @@ class Stock extends MY_Model {
     }
     public function redoMovement($stockList){
          if(is_null($stockList)){
-            return;
+           return NULL;
         }
          $this->load->database();
          $this->db->truncate('movements');
          
          foreach($stockList as $stock){
            
-             
+            
             $data = array(
             'Datetime'      => date('r', $stock['datetime']) ,
             'Code'      => $stock['code'] ,
@@ -52,7 +55,7 @@ class Stock extends MY_Model {
     public function redoTransactions($stockList){
         
         if(is_null($stockList)){
-            return;
+            return NULL;
         }
         
          $this->load->database();

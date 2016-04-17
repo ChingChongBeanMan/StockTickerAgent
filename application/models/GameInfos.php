@@ -16,13 +16,16 @@ class GameInfos extends MY_Model{
 
   
     }
+    public function xmlConnect(){
+        $this->xml = simplexml_load_file(BSXPATH.'status');
+        if($this->xml == NULL)
+            return false;
+        return true;
+    }
     public function getInfo(){
         
         
-         $this->xml = simplexml_load_file(BSXPATH.'status');//, "SimpleXMLElement", LIBXML_NOENT);
-
-           $bsx = $this->xml;
-
+        $this->xml = simplexml_load_file(BSXPATH.'status');
 
         $this->game['round']    = (int)$this->xml->round;
         $this->game['state']    = (int)$this->xml->state;
@@ -35,19 +38,7 @@ class GameInfos extends MY_Model{
         $this->game['countdown']= (int)$this->xml->countdown;  
        
          return array($this->game);
-        /*   
-         if($this->xml){       
-        }
-        else{
-            echo "ERROROROROROR!!!!!! NO FILE";
-        
-        $this->game = array("round"=>"0","state"=>"3","current"=>"-",
-                            "desc" => "-", "duration"=>"-", "upcoming"=>"-",
-                            "alarm"=>"-", "now"=>"-", "countdown"=>"-");
-        return array($this->game);
-        }
-         * s
-         */
+
     }
     public function getGameStock(){
         $stocks = array();
