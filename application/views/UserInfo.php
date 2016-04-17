@@ -1,4 +1,4 @@
-<table>
+<table class="CSSTableGenerator">
     {userInformation}
     <tr>
         <td rowspan="3">
