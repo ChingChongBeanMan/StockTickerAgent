@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class GameInfo extends MY_Controller {
+class Dashboard extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,27 +21,22 @@ class GameInfo extends MY_Controller {
         function __construct()
 	{
 		parent::__construct();
-                $this->data['pagetitle'] = 'Game Status';
+                $this->data['pagetitle'] = 'Dashboard';
 	}
         //Loads the page
 	public function index()
 	{
            //Load library and models
             $this->load->database();
-            $this->load->model('GameInfos');
-            $this->load->model('Stock');
-            $this->data['pagebody'] = 'GameInfo';
-            $this->data['temptitle'] = 'Check Status';
-            $this->data['temptitles'] = 'Data Check';
-            $infosave = $this->GameInfos->getInfo();
-            $this->data['information'] = $infosave;
-            $url = BSXPATH."data/stocks";
-            
-            $stockTest = $this->GameInfos->ImportCSV2Array($url);
-            $this->data['stockInfo'] = $stockTest;
-            
+            $this->load->model('Users');
+            $this->data['pagebody'] = 'UserInfo';
+            $infosave = $this->Users->getAUser("test");
+            $user = $infosave->result();
+            $this->data['userInformation'] = $user;            
             
             $this->render();
         }
     
+        
+      
 }

@@ -52,7 +52,7 @@ class StockManager extends MY_Controller {
         
         public function buyStocks($stockName){
         //echo $stockName;
-        $url = DATAPATH . '/buy';
+        $url = BSXPATH . '/buy';
         $key = $this->getKey();
         $data = array('team' => 'o11',
                       'token' => $key ,
@@ -80,7 +80,7 @@ class StockManager extends MY_Controller {
     }
         public function sellStocks($stockName, $quantity){
         //echo $stockName;
-        $url = DATAPATH . '/sell';
+        $url = BSXPATH . '/sell';
         $key = $this->getKey();
         $data = array('team' => 'o11',
                       'token' => $key ,

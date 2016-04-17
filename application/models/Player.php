@@ -21,4 +21,5 @@ class Player extends MY_Model {
         );
         $this->db->insert('players', $data); 
     }
+
 }
