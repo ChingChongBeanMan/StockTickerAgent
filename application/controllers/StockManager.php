@@ -86,7 +86,7 @@ class StockManager extends MY_Controller {
         
         public function buyStocks($stockName, $quantity, $user){
         //echo $stockName;
-        
+
         $url = BSXPATH . '/buy';
         $key = $this->getKey();
         $xml = simplexml_load_string($key);

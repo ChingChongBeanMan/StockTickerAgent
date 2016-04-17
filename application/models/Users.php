@@ -28,5 +28,14 @@ class Users extends MY_Model {
         $qet = $this->db->get();
         return $qet;
     }
-   
+     function getAUser($user){
+        $this->load->database();
+        $this->db->select('*');
+        $this->db->from('Players');
+        $userfind = "Player=\"".$user."\"";
+        $this->db->where($userfind);
+        $qet = $this->db->get();
+
+        return $qet;
+    }
 }

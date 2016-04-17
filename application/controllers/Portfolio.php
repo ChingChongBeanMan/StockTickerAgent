@@ -73,6 +73,7 @@ class Portfolio extends My_Controller{
                 
         }
         $this->showLogin();
+        
         /*
         
         
