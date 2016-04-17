@@ -37,8 +37,8 @@ class Portfolio extends My_Controller{
         $this->render();
     }
     public function login() {
-        
-              
+        $this->load->helper('url');
+           
         if(!$this->input->post('field-username')) {
                        
             $this->showLogin();
@@ -60,6 +60,7 @@ class Portfolio extends My_Controller{
                     $this->session->set_userdata('userRole',$user->role);
                     $this->data['login-menu'] = $this->parser->parse("logout_menu", $this->data, true);
                     header("dashboard.php");
+                    redirect("/dashboard");
                     return;
                 }
                 else{

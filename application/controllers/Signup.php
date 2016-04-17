@@ -46,7 +46,7 @@ class Signup extends My_Controller{
        }
        echo "Adding user";
        $cash = 1000;
-       $this->Users->addUser($use,password_hash($pass,PASSWORD_DEFAULT), "admin");
+       $this->Users->addUser($use,password_hash($pass,PASSWORD_DEFAULT), "player");
        $this->Player->AddUser($use, $cash);
        $this->index();
    }
