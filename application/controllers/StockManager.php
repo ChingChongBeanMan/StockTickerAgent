@@ -29,9 +29,9 @@ class StockManager extends MY_Controller {
                 $this->data['pagetitle'] = 'Buy and Sell Stocks';
 	}
     public function getKey(){
-            $url = DATAPATH . 'register';
+            $url = BSXPATH . 'register';
             $data = array('team' => 'o11',
-                          'name' => 'Eunwon',
+                          'name' => 'Colin',
                           'password' => 'tuesday' );
             $send = array(
                 'http' => array(
@@ -40,37 +40,71 @@ class StockManager extends MY_Controller {
                 'content' => http_build_query($data)
             )
         );
-        $context  = stream_context_create($send);
+        $context  = stream_context_create($send, $quantity);
         $result = file_get_contents($url, false, $context);
-        if ($result === FALSE) { /* Handle error */ }
-
-        var_dump($result);   
+        if ($result === FALSE) { 
+            return NULL;
+            
+        }
+        var_dump($result);
+        return $result;  
     }
         
         public function buyStocks($stockName){
         //echo $stockName;
         $url = DATAPATH . '/buy';
+        $key = $this->getKey();
         $data = array('team' => 'o11',
-                                'token' => 'b218abc762c363ab7a665162c9c391e1',
-                                'player' => 'Donald',
-                                'stock' => $stockName,
-                                'quantity' => '1' );
+                      'token' => $key ,
+                      'player' => 'Colin',
+                      'stock' => $stockName,
+                      'quantity' => $quantity
+                );
 
-        // use key 'http' even if you send the request to https://...
-        $options = array(
+     
+        $send = array(
             'http' => array(
-                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-                'method'  => 'POST',
-                'content' => http_build_query($data)
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data)
             )
         );
-        $context  = stream_context_create($options);
+        $context  = stream_context_create($send);
         $result = file_get_contents($url, false, $context);
-        if ($result === FALSE) { /* Handle error */ }
+        if ($result === FALSE) {
+            
+            
+        }
 
         var_dump($result);
     }
-        
+        public function sellStocks($stockName, $quantity){
+        //echo $stockName;
+        $url = DATAPATH . '/sell';
+        $key = $this->getKey();
+        $data = array('team' => 'o11',
+                      'token' => $key ,
+                      'player' => 'Colin',
+                      'stock' => $stockName,
+                      'quantity' =>  $quantity );
+
+     
+        $send = array(
+            'http' => array(
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data)
+            )
+        );
+        $context  = stream_context_create($send);
+        $result = file_get_contents($url, false, $context);
+        if ($result === FALSE) {
+            
+            
+        }
+
+        var_dump($result);
+    }   
         
         
 }
