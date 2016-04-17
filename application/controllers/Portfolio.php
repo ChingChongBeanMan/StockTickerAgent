@@ -57,7 +57,7 @@ class Portfolio extends My_Controller{
                     $nData = array('username' => $this->input->post('field-username'));
                     $this->session->set_userdata($nData);
                     $this->data['login-menu'] = $this->parser->parse("logout_menu", $this->data, true);
-                    $this->index();
+                    $this->showLogin();
                     return;
                 }
                 else{
@@ -69,7 +69,9 @@ class Portfolio extends My_Controller{
             }
             
                 
-        }/*
+        }
+        $this->showLogin();
+        /*
         
         
         
