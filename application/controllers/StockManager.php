@@ -27,10 +27,12 @@ class StockManager extends MY_Controller {
 	{
 		parent::__construct();
                 $this->data['pagetitle'] = 'Buy and Sell Stocks';
+                $this->restrict(array(ROLE_USER,ROLE_ADMIN));
 	}
-        function index(){
+        function index($message = null){
             $this->data['pagebody'] = 'BuySell';
             $this->getStocks();
+            $this->data['message'] = $message;
             $this->render();
         }
         function getStocks(){
@@ -40,14 +42,24 @@ class StockManager extends MY_Controller {
             $stockAll = $this->GameInfos->ImportCSV2Array($url);
             $this->Stock->redoStocks($stockAll);
             $stockList = $this->Stock->all();
+            $username = $this->session->userdata('userName');
             
-            foreach($stockList as $stock){
+            if(count($stockList) == 0)
+            {
+                
+                return;
+                
+            }
+            
+                foreach($stockList as $stock){
                 $arr = array('code' => $stock->Code,
                              'name' => $stock->Name,
-                             'value' => $stock->Value);
+                             'value' => $stock->Value,
+                             'username' => $username);
                 
                 $stockArr[] = $arr;
             }
+            
             $this->data['listStock'] = $stockArr;
         }
     public function getKey(){
@@ -111,8 +123,11 @@ class StockManager extends MY_Controller {
         $stockcert = simplexml_load_string($result);
         $c = count((array)$stockcert);
         if($c == 1){
-            $this->data['message'] = "Stock not purchased";
-            $this->index();
+            
+            //$this->data['message'] = "Stock not purchased";
+            $str = (string)$stockcert->message;
+            var_dump($str);
+            $this->index($str);
         }
         else{
             $token = (string)$stockcert->token;

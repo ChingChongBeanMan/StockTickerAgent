@@ -16,7 +16,8 @@ class MY_Controller extends CI_Controller {
         $this->data['title'] = 'Stocks';
         $this->errors = array();
         $this->data['pagetitle'] = 'Stock Game';
-		$this->load->helper('html');
+	$this->load->helper('html');
+        $this->load->helper('url');
     }
 
     /**
@@ -42,10 +43,26 @@ class MY_Controller extends CI_Controller {
         $this->data['menubar'] = $this ->parser->parse('_menubar', $x,true);
 
 
-		$this->data['content'] = $this ->parser->parse('mainmaster', $this->config->item('menu_choices'),true);
+	$this->data['content'] = $this ->parser->parse('mainmaster', $this->config->item('menu_choices'),true);
         $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
         $this->data['data'] = &$this->data;
         $this->parser->parse('_template', $this->data);
     }
+     function restrict($roleNeeded = null){
+         
+            $userRole = $this->session->userdata('userRole');
+            if ($roleNeeded != null) {
+                if (is_array($roleNeeded)) {
+                    if (!in_array($userRole, $roleNeeded))
+                    {
+                        redirect("/");
+                        return;
+                    }
+                } else if ($userRole != $roleNeeded) {
+                    redirect("/");
+                    return;
+                }
+            }
+        }
 }
 
