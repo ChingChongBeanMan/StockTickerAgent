@@ -19,10 +19,12 @@ class GameInfos extends MY_Model{
     public function getInfo(){
         
         
-         $this->xml = simplexml_load_file(BSXPATH.'status');//, "SimpleXMLElement", LIBXML_NOENT);
+        $this->xml = simplexml_load_file(BSXPATH.'status');//, "SimpleXMLElement", LIBXML_NOENT);
 
-           $bsx = $this->xml;
-
+        $bsx = $this->xml;
+        if($bsx == NULL){
+            return;
+        }
 
         $this->game['round']    = (int)$this->xml->round;
         $this->game['state']    = (int)$this->xml->state;

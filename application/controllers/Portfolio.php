@@ -50,12 +50,14 @@ class Portfolio extends My_Controller{
         $allUsers = $this->Users->getUser();
         $exist = false;
         foreach($allUsers->result() as $user){
-            if($user->username == $use){
+            if(strtolower($user->username) == strtolower($use)){
                 
                 if(password_verify($pass,$user->password)){
                     
                     $nData = array('username' => $this->input->post('field-username'));
                     $this->session->set_userdata($nData);
+                    $this->session->set_userdata('userName',$user->username);
+                    $this->session->set_userdata('userRole',$user->role);
                     $this->data['login-menu'] = $this->parser->parse("logout_menu", $this->data, true);
                     $this->showLogin();
                     return;
@@ -91,6 +93,7 @@ class Portfolio extends My_Controller{
     //Destroys user session
     public function logout() {
         $this->session->unset_userdata('username');
+        $this->session->unset_userdata('userRole');
         $this->data['login-menu'] = $this->parser->parse("login_menu", $this->data, true);
         $this->index();
     }
