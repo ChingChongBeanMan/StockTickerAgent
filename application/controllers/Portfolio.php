@@ -40,8 +40,8 @@ class Portfolio extends My_Controller{
         $this->load->helper('url');
            
         if(!$this->input->post('field-username')) {
-                       
-            $this->showLogin();
+             $this->showLogin();          
+           return;
         }
         
         $this->load->model("Users");
@@ -65,6 +65,7 @@ class Portfolio extends My_Controller{
                     return;
                 }
                 else{
+                    $this->showLogin();
                     return;
                 }
                 
