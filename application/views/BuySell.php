@@ -6,8 +6,8 @@
             <td>Name</td>
             <td>Code</td>
             <td>Value</td>
-            <td colspan="2">Buy</td>
-            <td colspan="2">Sell</td>
+            <td colspan="3">Buy</td>
+            <td colspan="3">Sell</td>
             </tr>
             {listStock}
             <tr>

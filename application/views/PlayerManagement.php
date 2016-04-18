@@ -1,11 +1,10 @@
 <div class="row">
      <div class="col-md-12">
          <table class="CSSTableGenerator table">
-            <thead>
-            <td>Name</td>
-            <td></td>
-            <td></td>
-            </thead>
+            <tr>
+                <td colspan="3"><h4><b>User List</b></h4></td>
+
+            </tr>
             {listPlayer}
             <tr>
                 <td>{username}</td>
