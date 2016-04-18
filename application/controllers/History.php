@@ -49,7 +49,6 @@ class History extends My_Controller{
         $this->db->order_by('Datetime', 'desc');
         $query = $this->db->get();
         $r = $query->row();
-        var_dump($r);
         //Query to get a users stock history
         $result = $this->StockList->some('Stock',$stock);
         $parse = '';
