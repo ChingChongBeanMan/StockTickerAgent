@@ -1,11 +1,16 @@
-<table class="CSSTableGenerator">
+<table class="CSSTableGenerator"  cellpadding="3">
     {userInformation}
     <tr>
-        <td rowspan="3">
+        <td colspan="3">
+        User Information
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="3"  style="margin:0px" width="20%">
             {avatar}
         </td>
-        <td>Username</td>
-        <td>{username}</td>
+        <td width="40%">Username</td>
+        <td width="40%">{username}</td>
     </tr>
     <tr>
         <td>Cash</td>

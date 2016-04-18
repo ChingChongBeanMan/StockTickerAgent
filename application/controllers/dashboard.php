@@ -33,8 +33,13 @@ class Dashboard extends MY_Controller {
             $this->data['pagebody'] = 'UserInfo';
             $infosave = $this->Users->getAUser("test");
             $this->username = "test";
-            $user = $infosave->result();
-            $this->data['userInformation'] = $user;    
+            $user = array();
+            $user['avatar']="<img src='../assets/avatar.jpg' width=\"150\">";
+            $user['username']=$this->session->userdata('username');
+            $user['cash']="1000";
+            $user['role']= $this->session->userdata('userRole');
+            
+            $this->data['userInformation'] = array($user);    
             
             $this->render();
         }
