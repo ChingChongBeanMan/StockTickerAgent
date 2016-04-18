@@ -61,17 +61,20 @@ class Portfolio extends My_Controller{
                     $this->data['login-menu'] = $this->parser->parse("logout_menu", $this->data, true);
                     header("dashboard.php");
                     redirect("/dashboard");
+                    $exist = true;
                     return;
                 }
                 else{
-                    
-                    $this->showLogin();
                     return;
                 }
                 
             }
-            
-                
+
+        }
+        if($user->username !=null){
+            echo "nononono user";
+            //header("../portfolio/login");
+           // redirect("../portfolio/login");
         }
         $this->showLogin();
 
@@ -129,9 +132,7 @@ class Portfolio extends My_Controller{
         $this->data['ProfileSummary'] = $recent;
         $this->data['HoldingSummary'] = $holdings;
         $this->data['PlayerName'] = $name;
-        //##################################
-        //move to ####/dashboard
-        //#################################
+
         $this->render();
         
         

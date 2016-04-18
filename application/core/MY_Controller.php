@@ -77,6 +77,7 @@ class MY_Controller extends CI_Controller {
                 }
                 if($this->session->userdata('userRole') == 'player'){
                     $choices[] = array('name' => "GameInfo", 'link' => '/gameinfo');
+                    $choices[] = array('name' => "Buy and Sell", 'link' => '/stockmanager');
                     $choices[] = array('name' => "Logout", 'link' => '/Portfolio/logout');
                     return $choices;
                       
