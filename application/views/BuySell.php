@@ -2,11 +2,13 @@
      <div class="col-md-12">
          <table class="CSSTableGenerator table">
              <h3>{message}</h3>
-            <thead>
+            <tr>
             <td>Name</td>
             <td>Code</td>
             <td>Value</td>
-            </thead>
+            <td colspan="2">Buy</td>
+            <td colspan="2">Sell</td>
+            </tr>
             {listStock}
             <tr>
                 <td>{name}</td>
