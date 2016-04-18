@@ -73,25 +73,8 @@ class Portfolio extends My_Controller{
             
                 
         }
-       // $this->showLogin();
-        
-        /*
-        
-        
-        
-        if($this->input->post('field-username')) {
-                $nData = array('username' => $this->input->post('field-username'));
-                $this->session->set_userdata($nData);
-                $this->data['login-menu'] = $this->parser->parse("logout_menu", $this->data, true);
-                $this->index();
-            } else {
-                $this->data['pagetitle'] = "Login";
-                $this->data['page'] = 'login';
-                $this->data['pagecontent'] = 'login';
-                $this->data['pagebody'] = 'login';
-                $this->render();
-              }*/
-        }
+
+    }
     //Destroys user session
     public function logout() {
         $this->session->unset_userdata('username');

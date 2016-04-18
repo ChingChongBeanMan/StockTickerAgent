@@ -33,7 +33,7 @@ class GameInfo extends MY_Controller {
             $this->data['pagebody'] = 'GameInfo';
             $this->data['temptitle'] = 'Check Status';
             $this->data['temp2title'] = 'Data Check';
-            if($this->GameInfos->xmlConnect){
+            if($this->GameInfos->xmlConnect()){
             $infosave = $this->GameInfos->getInfo();
             $this->data['information'] = $infosave;
             $url = BSXPATH."data/stocks";

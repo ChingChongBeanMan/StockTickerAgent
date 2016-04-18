@@ -90,11 +90,21 @@ class Welcome extends MY_Controller {
                         $ss->Quantity = 0;
                     }
                     //Add the value of held stocks to each players account
-                    $equity[$player->Player] += $ss->Quantity * $stockvalues[$ss->Stock];
+                    if($this->existStock($ss->Stock)){
+                        $equity[$player->Player] += $ss->Quantity * $stockvalues[$ss->Stock];
+                    }
                 }
             }
            
             return $equity;
+        }
+        function existStock($stockName){
+            $stocks = $this->Stocks->all();
+            foreach($stocks as $aStock){
+                if($aStock->Code == $stockName)
+                    return true;
+            }
+            return false;
         }
         function getstockvalue($result){
             $values = array();     

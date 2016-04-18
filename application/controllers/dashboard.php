@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends MY_Controller {
-
+        public $username;
 	/**
 	 * Index Page for this controller.
 	 *
@@ -22,6 +22,7 @@ class Dashboard extends MY_Controller {
 	{
 		parent::__construct();
                 $this->data['pagetitle'] = 'Dashboard';
+                
 	}
         //Loads the page
 	public function index()
@@ -31,12 +32,28 @@ class Dashboard extends MY_Controller {
             $this->load->model('Users');
             $this->data['pagebody'] = 'UserInfo';
             $infosave = $this->Users->getAUser("test");
+            $this->username = "test";
             $user = $infosave->result();
-            $this->data['userInformation'] = $user;            
+            $this->data['userInformation'] = $user;    
             
             $this->render();
         }
-    
         
-      
+        public function upload(){
+ 
+            $config['upload_path']= "../asset/avatar";
+            $config['allowed_types']= 'jpg|jpeg|gif|png';
+            $config['file_name'] = $this->user;
+            $config['max_size'] = 3000;
+            $this->load->library('upload', $config);
+            
+            if($this->upload->do_upload()){
+               $file_data = $this->upload->data();
+               $data['avatar'] = base_url().'/asset/avatar/'.$username;
+               echo "upload success";
+            }
+                
+ 
+        }
+
 }
