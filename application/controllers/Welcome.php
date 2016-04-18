@@ -42,7 +42,7 @@ class Welcome extends MY_Controller {
             //parse through all stocks and put in table
             $str = $this->session->userdata('username');
             
-            echo "<h1>$str<h1>";
+          //  echo "<h1>$str<h1>";
             foreach($qArr as $row){
                             
                 $result .= $this->parser->parse('maintable', $row, true);             
