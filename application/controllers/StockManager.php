@@ -80,7 +80,6 @@ class StockManager extends MY_Controller {
             return NULL;
             
         }
-        var_dump($result);
         return $result;  
     }
         
@@ -95,9 +94,7 @@ class StockManager extends MY_Controller {
             $this->index();
             return;
         }
-        echo $xml['token'];
         $realKey = (string)$xml->token;
-        echo $realKey;
         $data = array('team' => 'o11',
                       'token' => $realKey,
                       'player' => $user,
@@ -105,7 +102,6 @@ class StockManager extends MY_Controller {
                       'quantity' => $quantity
                 );
 
-        var_dump($data);
         $send = array(
             'http' => array(
             'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -113,7 +109,6 @@ class StockManager extends MY_Controller {
             'content' => http_build_query($data)
             )
         );
-        var_dump($send);
         $context  = stream_context_create($send);
         $result = file_get_contents($url, false, $context);
         if ($result === FALSE) {
@@ -126,17 +121,15 @@ class StockManager extends MY_Controller {
             
             //$this->data['message'] = "Stock not purchased";
             $str = (string)$stockcert->message;
-            var_dump($str);
             $this->index($str);
         }
         else{
             $token = (string)$stockcert->token;
             $this->load->model('HeldStock');
             $this->HeldStock->addPurchase($stockName, $user, $quantity, $token);
-            $this->data['message'] = "Stock Purchased!";
-            $this->index();
+            $str= "Stock Purchased!";
+            $this->index($str);
         }
-        var_dump($result);
     }
         public function sellStocks($stockName, $quantity, $player){
         //echo $stockName;
@@ -181,7 +174,6 @@ class StockManager extends MY_Controller {
             'content' => http_build_query($data)
             )
         );
-        var_dump($send);
         $context  = stream_context_create($send);
         $result = file_get_contents($url, false, $context);
         if ($result === FALSE) {
@@ -189,7 +181,6 @@ class StockManager extends MY_Controller {
             
         }
 
-        var_dump($result);
         
     }   
         
