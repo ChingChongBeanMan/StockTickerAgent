@@ -11,7 +11,7 @@ class Portfolio extends My_Controller{
      function __construct()
 	{
 		parent::__construct();
-        $this->load->library('session');
+                $this->load->library('session');
 		$this->data = array();
 		$this->data['pagetitle'] = 'Portfolio';
 		
@@ -28,23 +28,62 @@ class Portfolio extends My_Controller{
         }
     }
     //Creates a session variable based on a user name
+    public function showLogin(){
+        $this->data['pagetitle'] = "Login";
+        $this->data['page'] = 'login';
+    //    $this->data['pagecontent'] = 'login';
+        $this->data['pagebody'] = 'login';
+        
+        $this->render();
+    }
     public function login() {
-        if($this->input->post('field-username')) {
-                $nData = array('username' => $this->input->post('field-username'));
-                $this->session->set_userdata($nData);
-                $this->data['login-menu'] = $this->parser->parse("logout_menu", $this->data, true);
-                $this->index();
-            } else {
-                $this->data['pagetitle'] = "Login";
-                $this->data['page'] = 'login';
-                $this->data['pagecontent'] = 'login';
-                $this->data['pagebody'] = 'login';
-                $this->render();
-              }
+        $this->load->helper('url');
+           
+        if(!$this->input->post('field-username')) {
+             $this->showLogin();          
+           return;
         }
+        
+        $this->load->model("Users");
+        $use = $this->input->post('field-username');
+        $pass = $this->input->post('field-password');
+        $allUsers = $this->Users->getUser();
+        $exist = false;
+        foreach($allUsers->result() as $user){
+            if(strtolower($user->username) == strtolower($use)){
+                
+                if(password_verify($pass,$user->password)){
+                    
+                    $nData = array('username' => $this->input->post('field-username'));
+                    $this->session->set_userdata($nData);
+                    $this->session->set_userdata('userName',$user->username);
+                    $this->session->set_userdata('userRole',$user->role);
+                    $this->data['login-menu'] = $this->parser->parse("logout_menu", $this->data, true);
+                    header("dashboard.php");
+                    redirect("/dashboard");
+                    $exist = true;
+                    return;
+                }
+                else{
+                    $this->showLogin();
+                    return;
+                }
+                
+            }
+
+        }
+        if($user->username !=null){
+            echo "nononono user";
+            //header("../portfolio/login");
+           // redirect("../portfolio/login");
+        }
+        $this->showLogin();
+
+    }
     //Destroys user session
     public function logout() {
         $this->session->unset_userdata('username');
+        $this->session->unset_userdata('userRole');
         $this->data['login-menu'] = $this->parser->parse("login_menu", $this->data, true);
         $this->index();
     }
@@ -94,8 +133,9 @@ class Portfolio extends My_Controller{
         $this->data['ProfileSummary'] = $recent;
         $this->data['HoldingSummary'] = $holdings;
         $this->data['PlayerName'] = $name;
-        $this->generateDropdown();
+
         $this->render();
+        
         
     }
     //Gets the recent transactions of the user

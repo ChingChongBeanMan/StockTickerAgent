@@ -16,7 +16,8 @@ class MY_Controller extends CI_Controller {
         $this->data['title'] = 'Stocks';
         $this->errors = array();
         $this->data['pagetitle'] = 'Stock Game';
-		$this->load->helper('html');
+	$this->load->helper('html');
+        $this->load->helper('url');
     }
 
     /**
@@ -38,14 +39,60 @@ class MY_Controller extends CI_Controller {
 
         $x = $this->config->item('menu_choices');
         $x['login-menu'] = $this->data['login-menu'];
+        $choicesss = array('menudata' => $this->makemenu());
+        $this->data['menubar'] = $this ->parser->parse('_menubar', $choicesss,true);
 
-        $this->data['menubar'] = $this ->parser->parse('_menubar', $x,true);
 
-
-		$this->data['content'] = $this ->parser->parse('mainmaster', $this->config->item('menu_choices'),true);
+	$this->data['content'] = $this ->parser->parse('mainmaster', $this->config->item('menu_choices'),true);
         $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
         $this->data['data'] = &$this->data;
         $this->parser->parse('_template', $this->data);
     }
+     function restrict($roleNeeded = null){
+         
+            $userRole = $this->session->userdata('userRole');
+            if ($roleNeeded != null) {
+                if (is_array($roleNeeded)) {
+                    if (!in_array($userRole, $roleNeeded))
+                    {
+                        redirect("/");
+                        return;
+                    }
+                } else if ($userRole != $roleNeeded) {
+                    redirect("/");
+                    return;
+                }
+            }
+        }
+        function makemenu()
+	{
+		$choices = array();
+                $choices[] = array('name' => "Main", 'link' => '/index.php');
+                $choices[] = array('name' => "History", 'link' => '/history');
+                $choices[] = array('name' => "Portfolio", 'link' => '/portfolio');
+
+                if($this->session->userdata('userRole') == NULL){
+                    $choices[] = array('name' => "Login", 'link' => '/Portfolio/login');
+                    return $choices;
+                }
+                if($this->session->userdata('userRole') == 'player'){
+                    $choices[] = array('name' => "GameInfo", 'link' => '/gameinfo');
+                    $choices[] = array('name' => "Buy and Sell", 'link' => '/stockmanager');
+                    $choices[] = array('name' => "Logout", 'link' => '/Portfolio/logout');
+                    return $choices;
+                      
+                }
+                if($this->session->userdata('userRole') == 'admin'){
+                    $choices[] = array('name' => "GameInfo", 'link' => '/gameinfo');
+                    $choices[] = array('name' => "admin", 'link' => '/admin');
+                    $choices[] = array('name' => "Buy and Sell", 'link' => '/stockmanager');
+                    $choices[] = array('name' => "Logout", 'link' => '/Portfolio/logout');
+                    return $choices;
+                      
+                }
+                return 'joseph';
+		
+	}
+       
 }
 

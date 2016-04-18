@@ -29,8 +29,26 @@ class History extends My_Controller{
         //Load models
         $this->load->model('StockList');
         $this->load->model('MovementList');
+        $this->load->model('Stock');
+        $this->load->model('GameInfos');
         $this->load->library('parser');
         $this->data['title'] = 'Stock History';
+        $url = BSXPATH."data/stocks";
+        $stockAll = $this->GameInfos->ImportCSV2Array($url);
+        $this->Stock->redoStocks($stockAll);
+        $url = BSXPATH."data/movement";
+        $stockTest = $this->GameInfos->ImportCSV2Array($url);
+        $this->Stock->redoMovement($stockTest);
+        $url = BSXPATH."data/transaction";
+        $transactions = $this->GameInfos->ImportCSV2Array($url);
+        $this->Stock->redoTransactions($transactions);
+        $this->db->select('*');
+        $this->db->from('movements');
+        $this->db->join('stocks', 'movements.code = stocks.code' );
+        $this->db->where('stocks.code =', $stock);
+        $this->db->order_by('Datetime', 'desc');
+        $query = $this->db->get();
+        $r = $query->row();
         //Query to get a users stock history
         $result = $this->StockList->some('Stock',$stock);
         $parse = '';

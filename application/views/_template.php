@@ -14,8 +14,8 @@
     </head>
     <body style="background-color: black;">
 			{menubar}
-        <div class="container">               
-			{content}
+        <div class="container">
+            {content}
 		
         </div>
         <div id="footer" class="span12" style ="color : #FFFFFF; text-align: center;">

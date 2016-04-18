@@ -7,6 +7,10 @@ $config['menu_choices'] = array(
                     array('name' => 'History', 'link' => '/history'),
                     //array('name' => 'Profile', 'link' => '/profile'),
                     array('name' => 'Portfolio', 'link' => '/portfolio'),
+                    array('name' => 'GameInfo', 'link' => '/gameinfo'),
+                    array('name' => 'Admin', 'link' => '/Admin'),
+                    array('name' => 'Buy and Sell', 'link' => '/StockManager'),
+                    
             )
  
 );

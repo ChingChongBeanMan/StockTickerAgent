@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+define('BSXPATH', 'http://www.bsx.jlparry.com/');//'http://www.comp4711bsx.local/');
+define('XMLSUFFIX', '.xml');
+define('ROLE_ADMIN', 'admin');
+define('ROLE_USER', 'player');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace
