@@ -2,7 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class GameInfo extends MY_Controller {
-
+        protected $defaultInfo;
+        protected $defaultData;
 	/**
 	 * Index Page for this controller.
 	 *
@@ -21,8 +22,26 @@ class GameInfo extends MY_Controller {
         function __construct()
 	{
 		parent::__construct();
-                $this->data['pagetitle'] = 'Game Status';
+                $data['pagetitle'] = 'Game Status';
+                $temp = array();
+                $temp['round']    = '-';
+                $temp['state']    = '-';
+                $temp['current']  = '-';
+                $temp['desc']     = '-';
+                $temp['duration'] = '-';
+                $temp['upcoming']='-';
+                $temp['alarm']    = '-';
+                $temp['now']      = '-';  
+                $temp['countdown']= '-';  
+                $this->defaultData = array($temp);
+                $this->defaultInfo = array('code'=>'-',
+                                           'name'=>'-',
+                                           'category'=>'-',
+                                           'value'=>'-');
 	}
+        
+        
+        
         //Loads the page
 	public function index()
 	{
@@ -33,15 +52,21 @@ class GameInfo extends MY_Controller {
             $this->data['pagebody'] = 'GameInfo';
             $this->data['temptitle'] = 'Check Status';
             $this->data['temp2title'] = 'Data Check';
-            if($this->GameInfos->xmlConnect){
-            $infosave = $this->GameInfos->getInfo();
-            $this->data['information'] = $infosave;
-            $url = BSXPATH."data/stocks";
-            
-            $stockTest = $this->GameInfos->ImportCSV2Array($url);
-            $this->data['stockInfo'] = $stockTest;
-            
+            if($this->GameInfos->xmlConnect()){
+                $infosave = $this->GameInfos->getInfo();
+                $this->data['information'] = $infosave;
+                $url = BSXPATH."data/stocks";
+
+                $stockTest = $this->GameInfos->ImportCSV2Array($url);
+                $this->data['stockInfo'] = $stockTest;
+
             }
+            else{
+                
+                $this->data['information'] = $this->defaultInfo;
+                $this->data['stockInfo']=$this->defaultInfo;
+            }
+                
             $this->render();
         }
     

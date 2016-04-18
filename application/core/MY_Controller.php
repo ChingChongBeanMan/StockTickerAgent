@@ -39,8 +39,8 @@ class MY_Controller extends CI_Controller {
 
         $x = $this->config->item('menu_choices');
         $x['login-menu'] = $this->data['login-menu'];
-
-        $this->data['menubar'] = $this ->parser->parse('_menubar', $x,true);
+        $choicesss = array('menudata' => $this->makemenu());
+        $this->data['menubar'] = $this ->parser->parse('_menubar', $choicesss,true);
 
 
 	$this->data['content'] = $this ->parser->parse('mainmaster', $this->config->item('menu_choices'),true);
@@ -64,5 +64,34 @@ class MY_Controller extends CI_Controller {
                 }
             }
         }
+        function makemenu()
+	{
+		$choices = array();
+                $choices[] = array('name' => "Main", 'link' => '/index.php');
+                $choices[] = array('name' => "History", 'link' => '/history');
+                $choices[] = array('name' => "Portfolio", 'link' => '/portfolio');
+
+                if($this->session->userdata('userRole') == NULL){
+                    $choices[] = array('name' => "Login", 'link' => '/Portfolio/login');
+                    return $choices;
+                }
+                if($this->session->userdata('userRole') == 'player'){
+                    $choices[] = array('name' => "GameInfo", 'link' => '/gameinfo');
+                    $choices[] = array('name' => "Logout", 'link' => '/Portfolio/logout');
+                    return $choices;
+                      
+                }
+                if($this->session->userdata('userRole') == 'admin'){
+                    $choices[] = array('name' => "GameInfo", 'link' => '/gameinfo');
+                    $choices[] = array('name' => "admin", 'link' => '/admin');
+                    $choices[] = array('name' => "Buy and Sell", 'link' => '/stockmanager');
+                    $choices[] = array('name' => "Logout", 'link' => '/Portfolio/logout');
+                    return $choices;
+                      
+                }
+                return 'joseph';
+		
+	}
+       
 }
 

@@ -1,6 +1,6 @@
 <div class="row">
      <div class="col-md-12">
-         <table class="table">
+         <table class="CSSTableGenerator table">
             <thead>
             <td>Name</td>
             <td></td>

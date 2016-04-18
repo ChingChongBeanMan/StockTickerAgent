@@ -1,16 +1,16 @@
 <div>
     <div class="text-center col-md-12">
+        <h3 style="color:white">{temptitle}</h3>
         <table class="CSSTableGenerator table table-hover">
-            {temptitle}
             <tr>
-                <th>Round</th>
-                <th>State</th>
-                <th>Desc</th>
-                <th>Duration</th>
-                <th>Upcomming</th>
-                <th>Alarm</th>
-                <th>Now</th>
-                <th>Countdown</th>
+                <td>Round</td>
+                <td>State</td>
+                <td>Desc</td>
+                <td>Duration</td>
+                <td>Upcomming</td>
+                <td>Alarm</td>
+                <td>Now</td>
+                <td>Countdown</td>
             </tr>
             {information}
             <tr>
@@ -29,13 +29,13 @@
     
     
     <div class="text-center col-md-12 ">
+                <h3 style="color:white">{temp2title}</h3>
     <table class="CSSTableGenerator table table-hover">
-            {temp2title}
             <tr>
-                <th>code</th>
-                <th>name</th>
-                <th>category</th>
-                <th>value</th>
+                <td>code</td>
+                <td>name</td>
+                <td>category</td>
+                <td>value</td>
             </tr>
             {stockInfo}
             <tr>
